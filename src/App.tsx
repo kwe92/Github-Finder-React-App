@@ -2,17 +2,22 @@ import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Footer from "./components/footer/Footer";
+import About from "./components/about/About";
+import Wrapper from "./AppStyles";
 
-const App = (props:{})=>{
-    return(
-        <Router>
-            {/* TODO: Move to its own AppStyles.tsx */}
-        <div style={{height: "100vh", width: "100vw", background: "red", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
-        <Navbar/>
-        <Footer/>
-        </div>
-        </Router>
-    );
-};
+const App = (props:{}) => {
+    return (
+            <Router>
+                <Wrapper>
+                    <Navbar/>
+                    <Routes>
+                        <Route path="/" element={<></>}/>
+                        <Route path="/about" element={<About/>}/>
+                    </Routes>
+                    <Footer/>
+                </Wrapper>
+            </Router>
+            );
+        };
 
 export default App;
