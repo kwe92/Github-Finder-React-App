@@ -1,21 +1,20 @@
-import styled, { Interpolation, ThemedStyledProps } from "styled-components";
+import styled, { Interpolation } from "styled-components";
 import {FaGithub} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link as RouterLink} from "react-router-dom";
 
 const NavbarTheme = {
     fc: "white", //font-color
     fsXL: "1.875rem" // font-size xtra large
 }
 
-export const StyledLink = styled(Link)`
+export const Link = styled(RouterLink)`
 
 color: ${NavbarTheme.fc};
 
 font-size: ${NavbarTheme.fsXL};
 `;
 
-
-export const StyledNavbar = styled.nav`
+export const Navbar = styled.nav`
 
 justify-content: space-between;
 
@@ -27,7 +26,7 @@ height: 6rem;
 
 background: #3259b3;
 
-${StyledLink} {
+${Link} {
 
     text-decoration: none;
 
@@ -35,7 +34,6 @@ ${StyledLink} {
         color: #ff9e00;
     }
 }:
-
 `;
 
 export const Logo = styled.div`
@@ -49,10 +47,9 @@ font-size: ${NavbarTheme.fsXL};
     display: none;
 
 }
-
 `;
 
-export const StyledGithubIcon = styled(FaGithub)`
+export const GithubIcon = styled(FaGithub)`
 
 font-size: ${NavbarTheme.fsXL};
 
@@ -60,7 +57,7 @@ color: ${NavbarTheme.fc};
 
 `;
 
-export const StyledUlNavLinks = styled.ul`
+export const UlNavLinks = styled.ul`
 
 display: flex;
 
@@ -79,7 +76,7 @@ padding-right: 1.5rem;
 
 `;
 
-export const StyledHamburgerMenu = styled.label`
+export const HamburgerMenu = styled.label`
 
 color: ${NavbarTheme.fc};
 
@@ -93,6 +90,16 @@ padding-right: 1.5rem;
 
     display: block;
 }
+
+`;
+
+export const LogoIconContentWrapper = styled.div`
+
+display: flex;
+
+gap:1rem;
+
+padding-left: 1.5rem;
 
 `;
 
