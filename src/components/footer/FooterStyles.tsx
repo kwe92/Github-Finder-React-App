@@ -2,6 +2,8 @@ import styled from "styled-components";
 import {FaSlackHash} from "react-icons/fa"
 import {AiOutlineCopyright} from "react-icons/ai"
 
+// TODO: Change icon size maybe?
+
 export const HashTag = styled(FaSlackHash)`
 
     color: white;
