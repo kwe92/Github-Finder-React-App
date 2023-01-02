@@ -1,43 +1,39 @@
 import React from "react";
 import * as styles from "./NavbarStyles"
 
-const Navbar = (props:{})=>{
+const Navbar = (props:{}) => {
+
+    const Wrapper1 = styles.LogoIconContentWrapper;
+
     const links = {
-        home: <li><styles.StyledLink to ="/">Home</styles.StyledLink></li>,
-        about: <li><styles.StyledLink to ="/">About</styles.StyledLink></li>
+        home: <li><styles.Link to ="/">Home</styles.Link></li>,
+        about: <li><styles.Link to ="about">About</styles.Link></li>,
+    };
 
-    }
+    const hamburgerMenu = 
+        <styles.HamburgerMenu>&#9776;</styles.HamburgerMenu>;
 
-    const hamburgerMenu = <styles.StyledHamburgerMenu>&#9776;</styles.StyledHamburgerMenu>;
+    const iconLogo = 
+        <Wrapper1> 
+            <styles.GithubIcon/>
+            <styles.Logo>
+            Github Finder
+            </styles.Logo>
+        </Wrapper1>;
+
+    const navLinks = 
+        <styles.UlNavLinks>
+            {links['home']}
+            {links['about']}
+        </styles.UlNavLinks>;
 
     return(
-        // remove inline style
-        <styles.StyledNavbar>
-        
-            <div style={{display: "flex", gap:"1rem", paddingLeft: "1.5rem"}}>
-                {/* ICON */}
-            <styles.StyledGithubIcon/>
-            {/* LOGO */}
-            <styles.Logo>
-                Github Finder
-            </styles.Logo>
-            </div>
-
-            {/* NAVLINKS START */}
-
-            <styles.StyledUlNavLinks>
-
-                    {links['home']}
-                    {links['about']}
-
-            </styles.StyledUlNavLinks>
-
-            {/* NAVLINKS END */}
-
-            {/* HAMBURGER MENU */}
+        <styles.Navbar>
+            {iconLogo}
+            {navLinks}
             {hamburgerMenu}
-        </styles.StyledNavbar>
-    )
-};
+        </styles.Navbar>
+        );
+    };
 
 export default Navbar;
