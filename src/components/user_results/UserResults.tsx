@@ -1,15 +1,34 @@
-import React, {Key} from "react";
+import React, {Key, useEffect, useState} from "react";
 import { useUser } from "../custom_hooks/useUsers";
 import { GridWrapper } from "./UserResultsStyles";
+import { Spinner } from "../../assets/Spinner";
+import { UserItem } from "../user_item/UserItem";
+
 
 export const UserResults = (props:{}) => {
-    const [user, SetUser] = useUser();
-    const userList =
-        user.map((user: any, index: Key) => <h3 key={index}>{user["login"]}</h3>);
 
-    return(
-       <GridWrapper>
-            {userList}
-    </GridWrapper>
-    );
+    const [users, setUser] = useUser();
+
+    console.log("Users:",users)
+
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    const initState = () => {
+        setIsLoading(false);
+    };
+
+    useEffect(initState,[]);
+
+    const userList =
+        users.map((user: any, index: Key) => <UserItem key={user["id"]} user={user}/>);
+
+        return isLoading || users.length === 0 ?
+            <GridWrapper isLoading = {true}>
+                <Spinner/>
+            </GridWrapper> 
+            : 
+            <GridWrapper isLoading = {isLoading}>
+                {userList}
+            </GridWrapper>;
 };
