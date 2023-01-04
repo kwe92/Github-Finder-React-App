@@ -31,7 +31,13 @@ const Navbar = (props:{}) => {
         <styles.Navbar>
             {iconLogo}
             {navLinks}
+            <styles.HamburgerMenuContainer>
             {hamburgerMenu}
+            <styles.StyledDropdown>
+                {links["home"]}
+                {links["about"]}
+            </styles.StyledDropdown>
+            </styles.HamburgerMenuContainer>
         </styles.Navbar>
         );
     };
