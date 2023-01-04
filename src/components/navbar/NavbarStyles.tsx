@@ -20,6 +20,8 @@ justify-content: space-between;
 
 display: flex;
 
+// position: fixed;
+
 align-items: center;
 
 height: 6rem;
@@ -76,6 +78,15 @@ padding-right: 1.5rem;
 
 `;
 
+export const HamburgerMenuContainer = styled.ul`
+
+display: none;
+
+@media (max-width:768px){
+    display: block;
+}
+`
+
 export const HamburgerMenu = styled.label`
 
 color: ${NavbarTheme.fc};
@@ -101,6 +112,46 @@ gap:1rem;
 
 padding-left: 1.5rem;
 
+`;
+
+export const StyledDropdown = styled.ul`
+
+background-color: #3259b3;
+
+padding: 1em 0;
+
+position: absolute; // With respect to parent
+
+display: none;
+
+border-radius: 8px;
+
+top: 35px;
+
+li + li {
+  margin-top: 10px;
+}
+
+${HamburgerMenuContainer}:hover & {
+  display: block;
+}
+
+li {
+  padding: 0.5em 1em;
+
+  width: 8em;
+
+  text-align:center;
+}
+
+li: hover{
+  // Orange
+  color: #ff9e00;
+}
+
+@media(max-width:768px){
+  position: relative;
+}
 `;
 
 
