@@ -21,5 +21,5 @@ export const useUser = () => {
 
     useEffect(() => {fetchUsers()},[]);
 
-    return [user, SetUser] as Array<any>;
+    return [user, SetUser] as Array<Array<Object>>;
 }
