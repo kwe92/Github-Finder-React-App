@@ -1,10 +1,12 @@
 import styled, { StyledComponent } from "styled-components";
+import { ContainerType, ImageType } from "../../types/state/styled_component/types";
+
 
 interface Props {
     secondary?: boolean;
 };
 
-const Title: StyledComponent<"div", any, {}, never> = styled.div`
+const Title: ContainerType<{}> = styled.div`
 
     font-size: 3.25rem;
 
@@ -28,7 +30,7 @@ const ContentContainer: StyledComponent<"p", any, Props, never> = styled.p<Props
 
 `;
 
-const ContainerWrapper: StyledComponent<"div", any, {}, never> = styled.div`
+const ContainerWrapper: ContainerType<{}> = styled.div`
 
     display: flex;
 
@@ -40,7 +42,7 @@ const ContainerWrapper: StyledComponent<"div", any, {}, never> = styled.div`
 
 `;
 
-const AboutContentWrapper: StyledComponent<"div", any, {}, never> = styled.div`
+const AboutContentWrapper: ContainerType<{}> = styled.div`
 
     display: flex;
 
