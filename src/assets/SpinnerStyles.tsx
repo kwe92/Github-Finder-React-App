@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { rotate } from "./Keyframes";
+import styled, { StyledComponent, StyledInterface } from "styled-components";
+import rotate  from "./Keyframes";
 
-export const SpinnerImage = styled.img`
+const SpinnerImage: StyledComponent<"img", any, {}, never> = styled.img`
 max-width: 100%;
 `
 
-export const SpinnerContainer = styled.div`
+const SpinnerContainer: StyledComponent<"div", any, {}, never> = styled.div`
     
 display: flex;
 
@@ -30,3 +30,8 @@ animation: ${rotate} 2s linear infinite;
     height: 6rem;
 }
 `;
+
+export {
+    SpinnerImage,
+    SpinnerContainer,
+}
