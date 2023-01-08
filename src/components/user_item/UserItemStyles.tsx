@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { StyledComponent } from "styled-components";
 import {Link} from "react-router-dom";
+import { LinkProps } from "react-router-dom";
 
-export const ListTile = styled.div`
+export const ListTile: StyledComponent<"div",any,{},never> = styled.div`
 
     display: flex;
 
@@ -27,7 +28,7 @@ export const ListTile = styled.div`
 
 `;
 
-export const UserAvatarIcon = styled.img`
+export const UserAvatarIcon: StyledComponent<"img",any,{},never> = styled.img`
 
     max-width:100%;
     
@@ -35,7 +36,7 @@ export const UserAvatarIcon = styled.img`
 
 `;
 
-export const UserImageContainer = styled.div`
+export const UserImageContainer: StyledComponent<"div",any,{},never> = styled.div`
 
     display: flex;
 
@@ -47,7 +48,7 @@ export const UserImageContainer = styled.div`
 
 `;
 
-export const ContentContainer = styled.div`
+export const ContentContainer: StyledComponent<"div",any,{},never> = styled.div`
 
     display: flex;
 
@@ -57,7 +58,7 @@ export const ContentContainer = styled.div`
 
 `;
 
-export const Username = styled.p`
+export const Username: StyledComponent<"p",any,{},never> = styled.p`
 
     color: white;
 
@@ -67,7 +68,8 @@ export const Username = styled.p`
 
 `;
 
-export const ViewProfile = styled(Link)`
+export const ViewProfile: StyledComponent<React.ForwardRefExoticComponent<LinkProps & React.RefAttributes<HTMLAnchorElement>>,any,{},never>
+=  styled(Link)`
 
     color: grey;
 
