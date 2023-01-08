@@ -3,13 +3,15 @@ import useUser  from "../custom_hooks/useUsers";
 import { GridWrapper } from "./UserResultsStyles";
 import { Spinner } from "../../assets/Spinner";
 import { UserItem } from "../user_item/UserItem";
+import { SetState } from "../../types/state/stateTypes";
 
 
-export const UserResults = (props:{}) => {
 
-    const [users, setUser] = useUser();
+export const UserResults = (props:{searchResults: string}): JSX.Element => {
+    
+    const [users, setUser]: [object[], SetState<[]>] = useUser(props.searchResults);
 
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading]: [boolean, SetState<boolean>] = useState(true);
 
     const initState = () => {
         setIsLoading(false);
@@ -20,11 +22,7 @@ export const UserResults = (props:{}) => {
     const userList: Array<JSX.Element> =
         users.map((user: any, index: Key) => <UserItem key={user["id"]} user={user}/>);
 
-        //TODO: Display based on based on user input
-        // return ( null
-         
-        // );
-
+        
         return isLoading || users.length === 0 ?
         <GridWrapper isLoading = {true}>
             <Spinner/>
@@ -33,7 +31,4 @@ export const UserResults = (props:{}) => {
         <GridWrapper isLoading = {isLoading}>
             {userList}
         </GridWrapper>;
-
-       
-        
 };

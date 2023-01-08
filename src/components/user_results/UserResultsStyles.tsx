@@ -1,12 +1,11 @@
 import styled, { StyledComponent } from "styled-components";
+import { ContainerType } from "../../types/state/styled_component/types";
 
 interface Props  {
     isLoading: boolean;
 }
 
-export const GridWrapper: StyledComponent<"div",any,Props,never> = styled.div<Props>`
-
-color: white;
+export const GridWrapper: ContainerType<Props> = styled.div<Props>`
 
 justify-content: ${props => props.isLoading && "center"};
 
@@ -14,13 +13,9 @@ align-items: ${props => props.isLoading && "center"};
 
 display: grid;
 
-height: 100%;
-
 grid-template-columns: auto auto auto;
 
 overflow: scroll;
-
-padding: 2rem;
 
 @media(max-width:768px){
 
