@@ -1,45 +1,44 @@
-import React from "react";
-import * as styles from "./NavbarStyles"
+import React, {ReactNode} from "react";
+import {Link, Navbar as StyledNavbar, Logo, GithubIcon, UlNavLinks, HamburgerMenuContainer, HamburgerMenu as HBM, LogoIconContentWrapper, StyledDropdown} from "./NavbarStyles"
 
-const Navbar = (props:{}) => {
+const Navbar = (props:{}) => 
+        <StyledNavbar>
+            <IconLogo/>
+            <NavLinks/>
+            <HamburgerMenuContainer>
+                <HamburgerMenu/>
+                <StyledDropdown>
+                    <Home/>
+                    <About/>
+                </StyledDropdown>
+        </HamburgerMenuContainer>
+        </StyledNavbar>;
+   
+    const Wrapper1 = (props:{children?: ReactNode}) => 
+        <LogoIconContentWrapper>{props.children}</LogoIconContentWrapper>;
 
-    const Wrapper1 = styles.LogoIconContentWrapper;
+    const Home = (props:{}) => 
+        <li><Link to ="/">Home</Link></li>;
 
-    const links = {
-        home: <li><styles.Link to ="/">Home</styles.Link></li>,
-        about: <li><styles.Link to ="about">About</styles.Link></li>,
-    };
+    const About = (props:{}) => 
+        <li><Link to ="about">About</Link></li>;
 
-    const hamburgerMenu = 
-        <styles.HamburgerMenu>&#9776;</styles.HamburgerMenu>;
+    const HamburgerMenu = (props:{}) => 
+        <HBM>&#9776;</HBM>;
 
-    const iconLogo = 
+    const IconLogo = (props:{}) =>
         <Wrapper1> 
-            <styles.GithubIcon/>
-            <styles.Logo>
-            Github Finder
-            </styles.Logo>
+            <GithubIcon/>
+            <Logo>
+                Github Finder
+            </Logo>
         </Wrapper1>;
 
-    const navLinks = 
-        <styles.UlNavLinks>
-            {links['home']}
-            {links['about']}
-        </styles.UlNavLinks>;
+    const NavLinks = (props:{}) =>
+        <UlNavLinks>
+            <Home/>
+            <About/>
+        </UlNavLinks>;
 
-    return(
-        <styles.Navbar>
-            {iconLogo}
-            {navLinks}
-            <styles.HamburgerMenuContainer>
-            {hamburgerMenu}
-            <styles.StyledDropdown>
-                {links["home"]}
-                {links["about"]}
-            </styles.StyledDropdown>
-            </styles.HamburgerMenuContainer>
-        </styles.Navbar>
-        );
-    };
 
 export default Navbar;
