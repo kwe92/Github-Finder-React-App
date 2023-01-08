@@ -5,28 +5,30 @@ import { Link as RouterLink} from "react-router-dom";
 const NavbarTheme = {
     fc: "white", //font-color
     fsXL: "1.875rem" // font-size xtra large
-}
+};
 
-export const Link = styled(RouterLink)`
+const Link = styled(RouterLink)`
 
 color: ${NavbarTheme.fc};
 
 font-size: ${NavbarTheme.fsXL};
 `;
 
-export const Navbar = styled.nav`
+const Navbar = styled.nav`
 
 justify-content: space-between;
 
 display: flex;
 
-// position: fixed;
+// position: relative;
 
 align-items: center;
 
 height: 6rem;
 
-background: #3259b3;
+// background: #3259b3; blue
+
+background: #25262a;
 
 ${Link} {
 
@@ -35,10 +37,11 @@ ${Link} {
     &: hover {
         color: #ff9e00;
     }
-}:
+}
+
 `;
 
-export const Logo = styled.div`
+const Logo = styled.div`
 
 color: ${NavbarTheme.fc};
 
@@ -49,9 +52,10 @@ font-size: ${NavbarTheme.fsXL};
     display: none;
 
 }
+
 `;
 
-export const GithubIcon = styled(FaGithub)`
+const GithubIcon = styled(FaGithub)`
 
 font-size: ${NavbarTheme.fsXL};
 
@@ -59,7 +63,7 @@ color: ${NavbarTheme.fc};
 
 `;
 
-export const UlNavLinks = styled.ul`
+const UlNavLinks = styled.ul`
 
 display: flex;
 
@@ -78,16 +82,17 @@ padding-right: 1.5rem;
 
 `;
 
-export const HamburgerMenuContainer = styled.ul`
+const HamburgerMenuContainer = styled.ul`
 
 display: none;
 
 @media (max-width:768px){
     display: block;
 }
-`
 
-export const HamburgerMenu = styled.label`
+`;
+
+const HamburgerMenu = styled.label`
 
 color: ${NavbarTheme.fc};
 
@@ -104,7 +109,7 @@ padding-right: 1.5rem;
 
 `;
 
-export const LogoIconContentWrapper = styled.div`
+const LogoIconContentWrapper = styled.div`
 
 display: flex;
 
@@ -114,7 +119,7 @@ padding-left: 1.5rem;
 
 `;
 
-export const StyledDropdown = styled.ul`
+const StyledDropdown = styled.ul`
 
 background-color: #3259b3;
 
@@ -154,4 +159,4 @@ li: hover{
 }
 `;
 
-
+export {Link, Navbar, Logo, GithubIcon, UlNavLinks, HamburgerMenuContainer, HamburgerMenu, LogoIconContentWrapper, StyledDropdown};
