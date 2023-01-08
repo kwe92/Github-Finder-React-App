@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled, { StyledComponent } from "styled-components";
 
-interface Props  {
-    Secondary?: boolean,
+interface Props {
+    secondary?: boolean;
 };
 
-
-export const Title = styled.div`
+const Title: StyledComponent<"div", any, {}, never> = styled.div`
 
     font-size: 3.25rem;
 
@@ -13,7 +12,7 @@ export const Title = styled.div`
 
 `;
 
-export const ContentBody = styled.p`
+const ContentBody: StyledComponent<"p", any, {}, never> = styled.p`
 
     color: white;
 
@@ -21,25 +20,27 @@ export const ContentBody = styled.p`
 
 `;
 
-export const ContentContainer = styled.p<Props>`
+const ContentContainer: StyledComponent<"p", any, Props, never> = styled.p<Props>`
 
     font-size: 1rem;
 
-    color: ${ (p) => p.Secondary ? "white" : "grey"};
+    color: ${ (p) => p.secondary ? "white" : "grey"};
 
 `;
 
-export const ContainerWrapper = styled.div`
+const ContainerWrapper: StyledComponent<"div", any, {}, never> = styled.div`
 
     display: flex;
 
     flex-direction: row;
 
+    gap: 0.25rem;
+
     align-items: center;
 
 `;
 
-export const AboutContentWrapper = styled.div`
+const AboutContentWrapper: StyledComponent<"div", any, {}, never> = styled.div`
 
     display: flex;
 
@@ -55,20 +56,17 @@ export const AboutContentWrapper = styled.div`
         }
     }
 
-
     @media (max-width : 1024px) {
         ${ContentBody} {
             font-size: 1.25rem;
         }
     }
 
-
     @media (max-width : 1024px) {
         ${ContentContainer} {
             font-size: 0.75rem;
         }
     }
-
 
     @media (max-width : 768px) {
         ${Title} {
@@ -101,3 +99,5 @@ export const AboutContentWrapper = styled.div`
 }
 
 `;
+
+export {Title,ContentBody,ContentContainer,ContainerWrapper,AboutContentWrapper}
