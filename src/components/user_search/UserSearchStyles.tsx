@@ -1,4 +1,5 @@
 import styled, { StyledComponent } from "styled-components";
+import { ContainerType } from "../../types/state/styled_component/types";
 
 interface ClearButtonProps {
     type?: "button";
@@ -9,10 +10,12 @@ interface InputButtonProps {
 }
 
 
-const FlexWrapper: StyledComponent<"div", any, {}, never> = 
+const FlexWrapper: ContainerType<{}> = 
     styled.div`
 
-    padding: 4rem 0rem;
+    // background: green;
+
+    padding-top: 2.5rem;
 
     display: flex;
 
@@ -22,8 +25,6 @@ const FlexWrapper: StyledComponent<"div", any, {}, never> =
 
     gap: 1rem;
 
-    color: white;
-
     @media (min-width: 1024px){
 
     flex-direction: row;
@@ -31,11 +32,29 @@ const FlexWrapper: StyledComponent<"div", any, {}, never> =
     gap: 0rem;
 
     }
-
+    
 `;
 
 const Form: StyledComponent<"form", any, {}, never> = 
     styled.form`
+
+    display: flex;
+
+    flex-direction: row;
+
+    width: fit-content;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    @media (max-width: 450px){
+        width: 20rem;
+    }
+
+    @media (max-width: 350px){
+        width: 18rem;
+    }
 
 `;
 
@@ -97,19 +116,4 @@ const InputButton: StyledComponent<"button", any, InputButtonProps, never> =
 
     `;
 
-const InputContainer: StyledComponent<"div", any, {}, never> = 
-    styled.div`
-
-    display: flex;
-
-    flex-direction: row;
-
-    width: fit-content;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    `;
-
-export {FlexWrapper, Form, Input, ClearButton, InputContainer, InputButton};
+export {FlexWrapper, Form, Input, ClearButton, InputButton};
