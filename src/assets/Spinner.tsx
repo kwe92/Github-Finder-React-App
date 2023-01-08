@@ -1,10 +1,8 @@
+import { FunctionComponent } from "react";
 import spinner from "./spinner.png"
 import { SpinnerContainer,SpinnerImage } from "./SpinnerStyles";
 
-export const Spinner = (props:{}) => {
-    return(
+export const Spinner: FunctionComponent<{}> = (props:{}) => 
         <SpinnerContainer>
-        <SpinnerImage src={spinner}></SpinnerImage>
-        </SpinnerContainer>
-        );
-};
+        <SpinnerImage src={spinner}/>
+        </SpinnerContainer>;
