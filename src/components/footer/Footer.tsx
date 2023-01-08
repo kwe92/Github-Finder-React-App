@@ -1,20 +1,15 @@
-import React from "react";
+import React,{FunctionComponent} from "react";
 import {FooterContentWrapper as FooterWraper, CopyrightContent, HashTag, Footer as StyledFooter, CopyrightIcon} from "./FooterStyles";
 
-const Footer = (props:{}) => {
+const Footer: FunctionComponent = (props:{}) =>
+        <StyledFooter>
+            <FooterContent/>
+        </StyledFooter>;
 
-    const footerContent = 
+const FooterContent: FunctionComponent = (props:{}) => 
         <FooterWraper>
             <HashTag/>
             <CopyrightContent>Copyright <span><CopyrightIcon/></span> 2023 All rights reserved.</CopyrightContent>
-        </FooterWraper>
-
-    const footer =  
-        <StyledFooter>
-            {footerContent}
-        </StyledFooter>;
-
-    return footer;
-};
+        </FooterWraper>;
 
 export default Footer;
