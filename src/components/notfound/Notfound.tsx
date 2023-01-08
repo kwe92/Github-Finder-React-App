@@ -1,11 +1,8 @@
 import process from "process";
 import React from "react";
 
-export const Notfound = (props:{}) => {
-    return(
+//TODO: Continue refactoring components for all clean code principles you can think of
+export const Notfound = (props:{}) => 
         <div style={{color:"white", textAlign:"center"}}>
             404- Page Not Found
-            {/* {process.env.REACT_APP_GITHUB_API_TOKEN} */}
-        </div>
-    );
-};
+        </div>;
