@@ -1,8 +1,9 @@
 import styled, { StyledComponent } from "styled-components";
 import {Link} from "react-router-dom";
 import { LinkProps } from "react-router-dom";
+import { ContainerType } from "../../types/state/styled_component/types";
 
-export const ListTile: StyledComponent<"div",any,{},never> = styled.div`
+export const ListTile: ContainerType<{}> = styled.div`
 
     display: flex;
 
@@ -14,6 +15,10 @@ export const ListTile: StyledComponent<"div",any,{},never> = styled.div`
 
     margin: 0.5rem;
 
+    height: 8rem;
+
+    width: 25rem;
+
     // background: green;
 
     // background: #191d24;
@@ -24,7 +29,25 @@ export const ListTile: StyledComponent<"div",any,{},never> = styled.div`
 
     @media(max-width:1024px){
         padding: 1rem 1rem;
+        width: 19rem;
     }
+
+    @media (max-width:734px) {
+        width: 18rem;
+    }
+
+    @media (max-width: 450px){
+        width: 20.5rem;
+    }
+
+    @media (max-width: 400px){
+        width: 18rem;
+    }
+
+    @media (max-width: 350px){
+        width: 15rem;
+    }
+
 
 `;
 
