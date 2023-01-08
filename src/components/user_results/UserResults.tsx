@@ -1,5 +1,5 @@
 import React, {Key, useEffect, useState} from "react";
-import { useUser } from "../custom_hooks/useUsers";
+import useUser  from "../custom_hooks/useUsers";
 import { GridWrapper } from "./UserResultsStyles";
 import { Spinner } from "../../assets/Spinner";
 import { UserItem } from "../user_item/UserItem";
@@ -9,9 +9,6 @@ export const UserResults = (props:{}) => {
 
     const [users, setUser] = useUser();
 
-    console.log("Users:",users)
-
-
     const [isLoading, setIsLoading] = useState(true);
 
     const initState = () => {
@@ -20,15 +17,23 @@ export const UserResults = (props:{}) => {
 
     useEffect(initState,[]);
 
-    const userList =
+    const userList: Array<JSX.Element> =
         users.map((user: any, index: Key) => <UserItem key={user["id"]} user={user}/>);
 
+        //TODO: Display based on based on user input
+        // return ( null
+         
+        // );
+
         return isLoading || users.length === 0 ?
-            <GridWrapper isLoading = {true}>
-                <Spinner/>
-            </GridWrapper> 
-            : 
-            <GridWrapper isLoading = {isLoading}>
-                {userList}
-            </GridWrapper>;
+        <GridWrapper isLoading = {true}>
+            <Spinner/>
+        </GridWrapper> 
+        : 
+        <GridWrapper isLoading = {isLoading}>
+            {userList}
+        </GridWrapper>;
+
+       
+        
 };
