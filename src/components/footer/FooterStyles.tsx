@@ -2,7 +2,7 @@ import styled, { StyledComponent } from "styled-components";
 import {FaSlackHash} from "react-icons/fa"
 import {AiOutlineCopyright} from "react-icons/ai"
 import { IconType } from "react-icons/lib";
-
+import { ContainerType } from "../../types/state/styled_component/types";
 // TODO: Change icon size maybe?
 
 const HashTag: StyledComponent<IconType, any, {}, never> = styled(FaSlackHash)`
@@ -14,7 +14,7 @@ const HashTag: StyledComponent<IconType, any, {}, never> = styled(FaSlackHash)`
    font-size: 4rem;
 
 `;
-const FooterContentWrapper: StyledComponent<"div", any, {}, never> = styled.div`
+const FooterContentWrapper: ContainerType<{}> = styled.div`
 
     display: flex;
 
@@ -39,7 +39,7 @@ const CopyrightContent: StyledComponent<"p", any, {}, never> = styled.p`
 `;
 
 
-const Footer: StyledComponent<"div", any, {}, never> = styled.div`
+const Footer: ContainerType<{}> = styled.div`
 
     display: flex;
 
