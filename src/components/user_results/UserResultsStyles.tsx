@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import {ListTile} from "../user_item/UserItemStyles"
+import styled, { StyledComponent } from "styled-components";
 
-interface _props{
+interface Props  {
     isLoading: boolean;
 }
 
-export const GridWrapper = styled.div<_props>`
+export const GridWrapper: StyledComponent<"div",any,Props,never> = styled.div<Props>`
 
 color: white;
 
