@@ -1,13 +1,14 @@
-import styled, { Interpolation } from "styled-components";
+import styled, { Interpolation, StyledComponent } from "styled-components";
 import {FaGithub} from "react-icons/fa";
 import { Link as RouterLink} from "react-router-dom";
+import { ContainerType } from "../../types/state/styled_component/types";
 
 const NavbarTheme = {
     fc: "white", //font-color
     fsXL: "1.875rem" // font-size xtra large
 };
 
-const Link = styled(RouterLink)`
+const Link: StyledComponent<typeof RouterLink, any, {}, never> = styled(RouterLink)`
 
 color: ${NavbarTheme.fc};
 
@@ -20,9 +21,11 @@ justify-content: space-between;
 
 display: flex;
 
-// position: relative;
+position: absolute;
 
 align-items: center;
+
+width: 100%;
 
 height: 6rem;
 
@@ -41,7 +44,7 @@ ${Link} {
 
 `;
 
-const Logo = styled.div`
+const Logo:ContainerType<{}>  = styled.div`
 
 color: ${NavbarTheme.fc};
 
@@ -55,7 +58,7 @@ font-size: ${NavbarTheme.fsXL};
 
 `;
 
-const GithubIcon = styled(FaGithub)`
+const GithubIcon: StyledComponent<typeof FaGithub, any, {}, never> = styled(FaGithub)`
 
 font-size: ${NavbarTheme.fsXL};
 
@@ -63,7 +66,7 @@ color: ${NavbarTheme.fc};
 
 `;
 
-const UlNavLinks = styled.ul`
+const UlNavLinks: StyledComponent<"ul", any, {}, never> = styled.ul`
 
 display: flex;
 
@@ -82,7 +85,7 @@ padding-right: 1.5rem;
 
 `;
 
-const HamburgerMenuContainer = styled.ul`
+const HamburgerMenuContainer: StyledComponent<"ul", any, {}, never> = styled.ul`
 
 display: none;
 
@@ -92,7 +95,7 @@ display: none;
 
 `;
 
-const HamburgerMenu = styled.label`
+const HamburgerMenu: StyledComponent<"label", any, {}, never> = styled.label`
 
 color: ${NavbarTheme.fc};
 
@@ -109,7 +112,7 @@ padding-right: 1.5rem;
 
 `;
 
-const LogoIconContentWrapper = styled.div`
+const LogoIconContentWrapper: ContainerType<{}> = styled.div`
 
 display: flex;
 
@@ -119,7 +122,7 @@ padding-left: 1.5rem;
 
 `;
 
-const StyledDropdown = styled.ul`
+const StyledDropdown: StyledComponent<"ul", any, {}, never> = styled.ul`
 
 background-color: #3259b3;
 
