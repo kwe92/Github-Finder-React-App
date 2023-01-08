@@ -5,10 +5,9 @@ import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
 import Wrapper from "./AppStyles";
 import { Notfound } from "./components/notfound/Notfound";
-import { Home } from "./components/home/Home";
+import Home  from "./components/home/Home";
 
-const App = (props:{}) => {
-    return (
+const App = (props:{}) => 
             <Router>
                 <Wrapper>
                     <Navbar/>
@@ -20,7 +19,5 @@ const App = (props:{}) => {
                     <Footer/>
                 </Wrapper>
             </Router>
-            );
-        };
 
 export default App;
