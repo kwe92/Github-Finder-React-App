@@ -1,30 +1,22 @@
 import React from "react";
 import {ListTile, UserAvatarIcon, UserImageContainer, ContentContainer, Username, ViewProfile} from "./UserItemStyles";
 
-interface _props{
-    user: {login: string, avatar_url: string}
-}
+interface Props  {
+    user: {login: string; avatar_url: string;}
+};
 
-export const UserItem = (props:_props) => {
+export const UserItem = (props:Props) =>
 
-    const username = props.user.login;
-
-    return <ListTile>
-
+    <ListTile>
         <UserImageContainer>
             <UserAvatarIcon src={props.user.avatar_url}/>
         </UserImageContainer>
-
         <ContentContainer>
             <Username>
-                {username}
+                {props.user.login}
             </Username>
-
-            <ViewProfile to={`/users/${username}`}>
+            <ViewProfile to={`/users/${props.user.login}`}>
                 View Profile
             </ViewProfile>
-
         </ContentContainer>
-
         </ListTile>;
-};
