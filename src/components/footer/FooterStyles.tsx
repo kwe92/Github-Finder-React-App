@@ -1,18 +1,20 @@
-import styled from "styled-components";
+import styled, { StyledComponent } from "styled-components";
 import {FaSlackHash} from "react-icons/fa"
 import {AiOutlineCopyright} from "react-icons/ai"
+import { IconType } from "react-icons/lib";
 
 // TODO: Change icon size maybe?
 
-export const HashTag = styled(FaSlackHash)`
+const HashTag: StyledComponent<IconType, any, {}, never> = styled(FaSlackHash)`
 
-    color: white;
-
-    font-size: 4rem;
+   padding-top: 1rem;
+   
+   color: white;
+   
+   font-size: 4rem;
 
 `;
-
-export const FooterContentWrapper = styled.div`
+const FooterContentWrapper: StyledComponent<"div", any, {}, never> = styled.div`
 
     display: flex;
 
@@ -20,24 +22,24 @@ export const FooterContentWrapper = styled.div`
 
     align-items: center;
 
-    gap: 1.5rem;
+    gap: 1rem;
 
 `;
 
-export const CopyrightIcon = styled(AiOutlineCopyright)`
+const CopyrightIcon: StyledComponent<IconType, any, {}, never> = styled(AiOutlineCopyright)`
 
     color: white;
 
 `;
 
-export const CopyrightContent = styled.p`
+const CopyrightContent: StyledComponent<"p", any, {}, never> = styled.p`
 
     color: white;
 
 `;
 
 
-export const Footer = styled.div`
+const Footer: StyledComponent<"div", any, {}, never> = styled.div`
 
     display: flex;
 
@@ -82,4 +84,6 @@ export const Footer = styled.div`
         }
     }
 
-`
+`;
+
+export {HashTag, FooterContentWrapper, CopyrightIcon, CopyrightContent, Footer};
