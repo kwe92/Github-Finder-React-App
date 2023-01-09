@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ContainerType } from "./types/state/styled_component/types";
+import { TypeStyledComponent } from "./types/state/styled_component/types";
 
-const AppContentWrapper: ContainerType<{}> = styled.div`
+const AppContentWrapper: TypeStyledComponent< "div",{}> = styled.div`
 
     height: 100vh;
 
@@ -13,7 +13,7 @@ const AppContentWrapper: ContainerType<{}> = styled.div`
 
 `;
 
-export const Container: ContainerType<{}> = styled.div`
+export const Container: TypeStyledComponent<"div",{}> = styled.div`
 
 padding-top: 6rem;
 

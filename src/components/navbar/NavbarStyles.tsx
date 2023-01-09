@@ -1,21 +1,21 @@
-import styled, { Interpolation, StyledComponent } from "styled-components";
+import styled, { Interpolation, StyledComponent, StyledComponentBase } from "styled-components";
 import {FaGithub} from "react-icons/fa";
 import { Link as RouterLink} from "react-router-dom";
-import { ContainerType } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/state/styled_component/types";
 
 const NavbarTheme = {
     fc: "white", //font-color
     fsXL: "1.875rem" // font-size xtra large
 };
 
-const Link: StyledComponent<typeof RouterLink, any, {}, never> = styled(RouterLink)`
+const Link: TypeStyledComponent<typeof RouterLink, {}> = styled(RouterLink)`
 
 color: ${NavbarTheme.fc};
 
 font-size: ${NavbarTheme.fsXL};
 `;
 
-const Navbar = styled.nav`
+const Navbar: TypeStyledComponent<"nav", {}> = styled.nav`
 
 justify-content: space-between;
 
@@ -44,7 +44,7 @@ ${Link} {
 
 `;
 
-const Logo:ContainerType<{}>  = styled.div`
+const Logo:TypeStyledComponent<"div",{}>  = styled.div`
 
 color: ${NavbarTheme.fc};
 
@@ -58,7 +58,7 @@ font-size: ${NavbarTheme.fsXL};
 
 `;
 
-const GithubIcon: StyledComponent<typeof FaGithub, any, {}, never> = styled(FaGithub)`
+const GithubIcon: TypeStyledComponent<typeof FaGithub, {}> = styled(FaGithub)`
 
 font-size: ${NavbarTheme.fsXL};
 
@@ -66,7 +66,7 @@ color: ${NavbarTheme.fc};
 
 `;
 
-const UlNavLinks: StyledComponent<"ul", any, {}, never> = styled.ul`
+const UlNavLinks: TypeStyledComponent<"ul", {}> = styled.ul`
 
 display: flex;
 
@@ -85,7 +85,7 @@ padding-right: 1.5rem;
 
 `;
 
-const HamburgerMenuContainer: StyledComponent<"ul", any, {}, never> = styled.ul`
+const HamburgerMenuContainer: TypeStyledComponent<"ul", {}> = styled.ul`
 
 display: none;
 
@@ -95,7 +95,7 @@ display: none;
 
 `;
 
-const HamburgerMenu: StyledComponent<"label", any, {}, never> = styled.label`
+const HamburgerMenu: TypeStyledComponent<"label", {}> = styled.label`
 
 color: ${NavbarTheme.fc};
 
@@ -112,7 +112,7 @@ padding-right: 1.5rem;
 
 `;
 
-const LogoIconContentWrapper: ContainerType<{}> = styled.div`
+const LogoIconContentWrapper: TypeStyledComponent<"div",{}> = styled.div`
 
 display: flex;
 
@@ -122,10 +122,11 @@ padding-left: 1.5rem;
 
 `;
 
-const StyledDropdown: StyledComponent<"ul", any, {}, never> = styled.ul`
+const StyledDropdown: TypeStyledComponent<"ul", {}> = styled.ul`
 
-background-color: #3259b3;
+background: #25262a;
 
+box-shadow: 0px 1px 2px grey;
 padding: 1em 0;
 
 position: absolute; // With respect to parent

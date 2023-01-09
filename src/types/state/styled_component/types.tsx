@@ -1,5 +1,5 @@
 import styled, {StyledComponent} from "styled-components";
+import { ComponentType } from "react";
 
-export type ContainerType<T extends object> = StyledComponent<"div", any, T, never>;
-
-export type ImageType<T extends object> = StyledComponent<"img", any, T, never>;
+// Generic Type Alias for Styled Components
+export type TypeStyledComponent<S extends ComponentType<any> | keyof JSX.IntrinsicElements,T extends object> = StyledComponent<S, any, T, never>;

@@ -1,11 +1,11 @@
 import styled, { StyledComponent } from "styled-components";
-import { ContainerType } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/state/styled_component/types";
 
 interface Props  {
     isLoading: boolean;
 }
 
-export const GridWrapper: ContainerType<Props> = styled.div<Props>`
+export const GridWrapper: TypeStyledComponent<"div",Props> = styled.div<Props>`
 
 justify-content: ${props => props.isLoading && "center"};
 

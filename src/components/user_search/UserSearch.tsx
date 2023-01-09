@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { SetState } from "../../types/state/stateTypes";
 import { FlexWrapper, Form, Input, ClearButton, InputButton} from "./UserSearchStyles";
 
-const UserSearch = (props:{setSearch: SetState<string>}): JSX.Element => 
+const UserSearch = (props:{setSearch: CallableFunction}): JSX.Element => 
        {
         const [userInput, setUserInput] = useState("");
 
@@ -12,7 +12,9 @@ const UserSearch = (props:{setSearch: SetState<string>}): JSX.Element =>
             <>
             <Form onSubmit={(event)=>{
                 event.preventDefault();
-                props.setSearch(userInput);
+                // set error if user input is blank
+                userInput ? 
+                props.setSearch(userInput, false): props.setSearch(userInput, true);
                 setUserInput("");
 
             }}>

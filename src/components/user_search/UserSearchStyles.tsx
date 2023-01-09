@@ -1,5 +1,5 @@
 import styled, { StyledComponent } from "styled-components";
-import { ContainerType } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/state/styled_component/types";
 
 interface ClearButtonProps {
     type?: "button";
@@ -10,10 +10,10 @@ interface InputButtonProps {
 }
 
 
-const FlexWrapper: ContainerType<{}> = 
+const FlexWrapper: TypeStyledComponent<"div",{}> = 
     styled.div`
 
-    // background: green;
+    // background: red;
 
     padding-top: 2.5rem;
 
@@ -35,7 +35,7 @@ const FlexWrapper: ContainerType<{}> =
     
 `;
 
-const Form: StyledComponent<"form", any, {}, never> = 
+const Form: TypeStyledComponent<"form", {}> = 
     styled.form`
 
     display: flex;
@@ -58,7 +58,7 @@ const Form: StyledComponent<"form", any, {}, never> =
 
 `;
 
-const Input: StyledComponent<"input", any, {}, never> = 
+const Input: TypeStyledComponent<"input", {}> = 
     styled.input`
 
     outline: none;
@@ -69,7 +69,7 @@ const Input: StyledComponent<"input", any, {}, never> =
 
 `;
 
-const ClearButton: StyledComponent<"button", any, ClearButtonProps, never> = 
+const ClearButton: TypeStyledComponent<"button", ClearButtonProps> = 
     styled.button<ClearButtonProps>`
 
     width: 10rem;
@@ -99,7 +99,7 @@ const ClearButton: StyledComponent<"button", any, ClearButtonProps, never> =
    
     `;
 
-const InputButton: StyledComponent<"button", any, InputButtonProps, never> =
+const InputButton: TypeStyledComponent<"button", InputButtonProps> =
     styled.button<InputButtonProps>`
 
     width: 10rem;

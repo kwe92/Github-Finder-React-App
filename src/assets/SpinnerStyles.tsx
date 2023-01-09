@@ -1,12 +1,12 @@
 import styled, { StyledComponent, StyledInterface } from "styled-components";
-import { ContainerType, ImageType } from "../types/state/styled_component/types";
+import { TypeStyledComponent } from "../types/state/styled_component/types";
 import rotate  from "./Keyframes";
 
-const SpinnerImage: ImageType<{}> = styled.img`
+const SpinnerImage: TypeStyledComponent<"img",{}> = styled.img`
 max-width: 100%;
 `
 
-const SpinnerContainer: ContainerType<{}> = styled.div`
+const SpinnerContainer: TypeStyledComponent<"div",{}> = styled.div`
     
 display: flex;
 

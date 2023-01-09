@@ -1,9 +1,9 @@
 import styled, { StyledComponent } from "styled-components";
 import {Link} from "react-router-dom";
 import { LinkProps } from "react-router-dom";
-import { ContainerType } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/state/styled_component/types";
 
-export const ListTile: ContainerType<{}> = styled.div`
+export const ListTile: TypeStyledComponent<"div",{}> = styled.div`
 
     display: flex;
 
@@ -19,10 +19,8 @@ export const ListTile: ContainerType<{}> = styled.div`
 
     width: 25rem;
 
-    // background: green;
-
-    // background: #191d24;
-
+    //TODO: Make box-shadow color brighter
+    
     box-shadow: 1px 2px 4px #292727;
 
     padding: 2rem 1rem;
@@ -51,7 +49,7 @@ export const ListTile: ContainerType<{}> = styled.div`
 
 `;
 
-export const UserAvatarIcon: StyledComponent<"img",any,{},never> = styled.img`
+export const UserAvatarIcon: TypeStyledComponent<"img",{}> = styled.img`
 
     max-width:100%;
     
@@ -59,7 +57,7 @@ export const UserAvatarIcon: StyledComponent<"img",any,{},never> = styled.img`
 
 `;
 
-export const UserImageContainer: StyledComponent<"div",any,{},never> = styled.div`
+export const UserImageContainer: TypeStyledComponent<"div",{}> = styled.div`
 
     display: flex;
 
@@ -71,7 +69,7 @@ export const UserImageContainer: StyledComponent<"div",any,{},never> = styled.di
 
 `;
 
-export const ContentContainer: StyledComponent<"div",any,{},never> = styled.div`
+export const ContentContainer: TypeStyledComponent<"div",{}> = styled.div`
 
     display: flex;
 
@@ -81,7 +79,7 @@ export const ContentContainer: StyledComponent<"div",any,{},never> = styled.div`
 
 `;
 
-export const Username: StyledComponent<"p",any,{},never> = styled.p`
+export const Username: TypeStyledComponent<"p",{}> = styled.p`
 
     color: white;
 
@@ -91,7 +89,7 @@ export const Username: StyledComponent<"p",any,{},never> = styled.p`
 
 `;
 
-export const ViewProfile: StyledComponent<React.ForwardRefExoticComponent<LinkProps & React.RefAttributes<HTMLAnchorElement>>,any,{},never>
+export const ViewProfile: TypeStyledComponent<React.ForwardRefExoticComponent<LinkProps & React.RefAttributes<HTMLAnchorElement>>,{}>
 =  styled(Link)`
 
     color: grey;

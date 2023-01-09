@@ -1,12 +1,12 @@
 import styled, { StyledComponent } from "styled-components";
-import { ContainerType, ImageType } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/state/styled_component/types";
 
 
 interface Props {
     secondary?: boolean;
 };
 
-const Title: ContainerType<{}> = styled.div`
+const Title: TypeStyledComponent<"div",{}> = styled.div`
 
     font-size: 3.25rem;
 
@@ -14,7 +14,7 @@ const Title: ContainerType<{}> = styled.div`
 
 `;
 
-const ContentBody: StyledComponent<"p", any, {}, never> = styled.p`
+const ContentBody: TypeStyledComponent<"p", {}> = styled.p`
 
     color: white;
 
@@ -22,7 +22,7 @@ const ContentBody: StyledComponent<"p", any, {}, never> = styled.p`
 
 `;
 
-const ContentContainer: StyledComponent<"p", any, Props, never> = styled.p<Props>`
+const ContentContainer: TypeStyledComponent<"p", Props> = styled.p<Props>`
 
     font-size: 1rem;
 
@@ -30,7 +30,7 @@ const ContentContainer: StyledComponent<"p", any, Props, never> = styled.p<Props
 
 `;
 
-const ContainerWrapper: ContainerType<{}> = styled.div`
+const ContainerWrapper: TypeStyledComponent<"div",{}> = styled.div`
 
     display: flex;
 
@@ -42,7 +42,7 @@ const ContainerWrapper: ContainerType<{}> = styled.div`
 
 `;
 
-const AboutContentWrapper: ContainerType<{}> = styled.div`
+const AboutContentWrapper: TypeStyledComponent<"div",{}> = styled.div`
 
     display: flex;
 
