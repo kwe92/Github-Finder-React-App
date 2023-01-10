@@ -1,5 +1,5 @@
 import styled, { StyledComponent } from "styled-components";
-import { TypeStyledComponent } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/styled_component/types";
 
 interface Props  {
     isLoading: boolean;
