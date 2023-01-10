@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { StyledComponent } from "styled-components";
 import { TypeStyledComponent } from "../../types/styled_component/types";
 import { FaUsers } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -8,6 +8,13 @@ const Row: TypeStyledComponent<"div", {}> = styled.div`
     display: flex;
 
 `;
+
+// const Row: StyledComponent<"div", any, {}, never> = styled.div`
+
+//     display: flex;
+
+// `;
+
 
 const Column: TypeStyledComponent<"div", {}> = styled.div`
 
@@ -19,12 +26,30 @@ const Column: TypeStyledComponent<"div", {}> = styled.div`
 
 const MainContainer: TypeStyledComponent<"div", {}> = styled.div`
 
-    align-self: flex-start;
+    // align-self: flex-start;
+
+    @media(max-width: 768px){
+
+        width: 95vw;
+
+    }
+
+`;
+
+const MainInnerContainer = styled(Column)`
+
+    gap: 2rem;
+
+    @media(max-width:450px){
+        gap:0.75;
+    }
 
 `;
 
 const TextIcon: TypeStyledComponent<"button", {}> = styled.button`
     
+    align-self: flex-start;
+
     background: none;
 
     border: none;
@@ -42,6 +67,12 @@ const ProfileImage: TypeStyledComponent<"img", {}> = styled.img`
 const NameImageContainer = styled(Row)`
 
     position: relative;
+
+    width: 20rem;
+
+    @media(max-width:450px){
+        width: auto;
+    }
 
 ` as TypeStyledComponent<typeof Row, {}>;
 
@@ -77,7 +108,9 @@ const UserLogin: TypeStyledComponent<"p", {}> = styled.p`
 
 const DescriptionContainer = styled(Column)`
 
-// background: green;
+    // background: green;
+
+    gap: 2.25rem;
 
 ` as TypeStyledComponent<typeof Column, {}>;
 
@@ -96,6 +129,12 @@ const NameContentContainer= styled(Row)`
 
 
 const UserBadge: TypeStyledComponent<"div", {}> = styled.div`
+
+    color: white;
+
+`;
+
+const HireableBadge: TypeStyledComponent<"div", {}> = styled.div`
 
     color: white;
 
@@ -123,19 +162,25 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
 
     border-radius: 10px;
 
+    @media(max-width:450px){
+        align-self: center;
+    }
+
 `;
 
 const LocationInfoContainer = styled(Row)`
 
     // gap: 2rem;
 
+    @media(max-width:450px){
+        justify-content: center;
+    }
+
 ` as TypeStyledComponent<typeof Row, {}>;
 
 const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
 
     color: white;
-
-    position: relative;
 
 `;
 
@@ -158,27 +203,77 @@ const ListTileContentBottom: TypeStyledComponent<"p", {}> = styled.p`
 const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     //TODO: Change to grey or some form of grey
-    border: 1px solid red;
+    border: 1px solid grey;
 
     // height: 100%;
+    
+    margin: 0rem 2rem;
 
     height: 3rem;
 
-    margin: 0px 20px;
+    @media(max-width:450px){
+        
+    margin: 0rem 1rem;
+
+    }
 
 `;
 
-const IconListTileContainer = styled(Row)`
+const LogoIconVerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
-    position: relative;
+    //TODO: Change to grey or some form of grey
+    border: 1px solid grey;
+
+    height: 3rem;
+
+    @media(max-width:450px){
+        
+        display: none;
+
+    }
+
+`;
+
+
+const IconListTileContainer = styled(Row)`
 
     // background: orange;
 
-    width: fit-content;
-
     gap: 4rem;
 
+    @media(max-width: 768px){
+
+        width: 10rem;
+        gap: 2rem;
+
+    }
+
+    @media(max-width: 450px){
+
+    justify-content: center; 
+
+    }
+
 ` as TypeStyledComponent<typeof Row, {}>;
+
+const ImageDescriptionContainer: TypeStyledComponent<"div", {}> = styled.div`
+
+    display: flex;
+
+    gap: 2rem;
+
+    @media(max-width:450px){
+        flex-direction: column;
+    }
+
+    @media(max-width: 768px){
+
+        gap: 1rem;
+
+    }
+
+
+`; 
 
 const IconUsers: TypeStyledComponent<IconType, {}> = styled(FaUsers)`
 
@@ -188,4 +283,19 @@ const IconUsers: TypeStyledComponent<IconType, {}> = styled(FaUsers)`
 
 `;
 
-export {MainContainer, TextIcon, ProfileImage, NameImageContainer, UserName, UserLogin, UserNameContainer, DescriptionContainer, NameContentContainer, UserBadge, Bio ,Row, Column, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentBottom, ListTileContentTop,VerticalLine, IconListTileContainer, IconUsers}
+const IconListTileContainerWrapper = styled(Row)`
+
+    gap: 2rem;
+
+    @media(max-width:450px){
+        
+        display: grid;
+
+        grid-template-columns: auto auto;
+
+        gap: 1rem;
+    }
+
+`;
+
+export {MainContainer, TextIcon, ProfileImage, NameImageContainer, UserName, UserLogin, UserNameContainer, DescriptionContainer, NameContentContainer, UserBadge, HireableBadge, Bio ,Row, Column, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentBottom, ListTileContentTop,VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine}
