@@ -7,20 +7,26 @@ import Wrapper, {Container} from "./AppStyles";
 import { Notfound } from "./components/notfound/Notfound";
 import Home  from "./components/home/Home";
 import styled from "styled-components";
+import User from "./components/User/User";
 
 const App = (props:{}) => 
-            <Router>
-                  <Navbar/>
-                <Wrapper>
+           {
+            return (
+                <Router>
+                    <Navbar/>
+                    <Wrapper>
                     <Container>
-                    <Routes>
-                        <Route path="/" element={<Home/>}/>
-                        <Route path="/about" element={<About/>}/>
-                        <Route path="/*" element={<Notfound/>}/>
-                    </Routes>
-                    </Container>
-                    <Footer/>
-                </Wrapper>
-            </Router>
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>
+                            <Route path="/about" element={<About/>}/>
+                            <Route path="/user/:login" element={<User/>}/>
+                            <Route path="/*" element={<Notfound/>}/>
+                        </Routes>
+                        </Container>
+                        <Footer/>
+                    </Wrapper>
+                </Router>
+            );
+        };
 
 export default App;
