@@ -4,5 +4,5 @@ import { SpinnerContainer,SpinnerImage } from "./SpinnerStyles";
 
 export const Spinner: FunctionComponent<{}> = (props:{}) => 
         <SpinnerContainer>
-        <SpinnerImage src={spinner}/>
+                <SpinnerImage src={spinner}/>
         </SpinnerContainer>;
