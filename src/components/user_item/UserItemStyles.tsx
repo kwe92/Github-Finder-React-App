@@ -1,7 +1,7 @@
 import styled, { StyledComponent } from "styled-components";
 import {Link} from "react-router-dom";
 import { LinkProps } from "react-router-dom";
-import { TypeStyledComponent } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/styled_component/types";
 
 export const ListTile: TypeStyledComponent<"div",{}> = styled.div`
 
@@ -30,7 +30,7 @@ export const ListTile: TypeStyledComponent<"div",{}> = styled.div`
         width: 19rem;
     }
 
-    @media (max-width:734px) {
+    @media (max-width:768px) {
         width: 18rem;
     }
 
@@ -91,6 +91,20 @@ export const Username: TypeStyledComponent<"p",{}> = styled.p`
 
 export const ViewProfile: TypeStyledComponent<React.ForwardRefExoticComponent<LinkProps & React.RefAttributes<HTMLAnchorElement>>,{}>
 =  styled(Link)`
+
+    color: grey;
+
+    font-size: 1.25rem;
+
+    font-weight: bolder;
+
+    text-decoration: none;
+    
+`;
+
+
+export const ViewProfile2: TypeStyledComponent<"div",{}>
+=  styled.div`
 
     color: grey;
 
