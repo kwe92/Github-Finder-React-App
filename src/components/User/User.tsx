@@ -1,7 +1,7 @@
 import React, {FunctionComponent, MouseEventHandler} from "react";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import useUser from "../custom_hooks/useUser";
-import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column} from "./UserStyles";
+import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column, HireableBadge, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine} from "./UserStyles";
 
 const User: FunctionComponent = (props:{}): JSX.Element => {
     
@@ -19,115 +19,122 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
     return (
             <MainContainer>
-                <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon>
-                    
-                    {/* Profile Image */}
-               <Row>
+                {/* Parse out into its own dive and margin auto? */}
+                <MainInnerContainer>
+                    <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon>
+                            
+                            {/* Profile Image */}
+                    <ImageDescriptionContainer>
 
-               <NameImageContainer>
+                    <NameImageContainer>
 
-                    <ProfileImage src={user["avatar_url"]}/>
+                            <ProfileImage src={user["avatar_url"]}/>
 
-                    <UserNameContainer>
-                        <UserName>{user["name"]}</UserName>
-                        <UserLogin>{user["login"]}</UserLogin>
-                    </UserNameContainer>
+                            <UserNameContainer>
+                                <UserName>{user["name"]}</UserName>
+                                <UserLogin>{user["login"]}</UserLogin>
+                            </UserNameContainer>
 
-                </NameImageContainer>
+                        </NameImageContainer>
 
-                <DescriptionContainer>
+                        <DescriptionContainer>
 
-                    <NameContentContainer>
-                        <UserName>{user["name"]}</UserName>
-                        <UserBadge>{user["type"]}</UserBadge>
-                    </NameContentContainer>
+                            <NameContentContainer>
+                                <UserName>{user["name"]}</UserName>
+                                <UserBadge>{user["type"]}</UserBadge>
+                                {/* TODO: If hireable is null || hireable the badge is green else not hireable*/}
+                                <HireableBadge>hireable</HireableBadge>
 
-                    <Bio>
-                        {user["bio"]}
-                    </Bio>
+                            </NameContentContainer>
 
-                    <ProfileUrlButton href={user["html_url"]}>
-                        VISIT GITHUB PROFILE
-                    </ProfileUrlButton>
+                            <Bio>
+                                {user["bio"]}
+                            </Bio>
 
-                    <LocationInfoContainer>
-                        <ListTile>
-                            <ListTileContentTop>Location</ListTileContentTop>
-                            <ListTileContentBottom>San Antonio</ListTileContentBottom>
-                        </ListTile>
+                            <ProfileUrlButton href={user["html_url"]}>
+                                VISIT GITHUB PROFILE
+                            </ProfileUrlButton>
 
-                        <VerticalLine/>
+                            <LocationInfoContainer>
+                                <ListTile>
+                                    <ListTileContentTop>Location</ListTileContentTop>
+                                    <ListTileContentBottom>San Antonio</ListTileContentBottom>
+                                </ListTile>
 
-                        <ListTile>
-                            <ListTileContentTop>Website</ListTileContentTop>
-                            <ListTileContentBottom>ayon.io</ListTileContentBottom>
-                        </ListTile>
+                                <VerticalLine/>
 
-                        <VerticalLine/>
+                                <ListTile>
+                                    <ListTileContentTop>Website</ListTileContentTop>
+                                    <ListTileContentBottom>ayon.io</ListTileContentBottom>
+                                </ListTile>
+
+                                <VerticalLine/>
 
 
-                        <ListTile>
-                            <ListTileContentTop>Twitter</ListTileContentTop>
-                            <ListTileContentBottom>AyonInnovations</ListTileContentBottom>
-                        </ListTile>
-                    </LocationInfoContainer>
+                                <ListTile>
+                                    <ListTileContentTop>Twitter</ListTileContentTop>
+                                    <ListTileContentBottom>AyonInnovations</ListTileContentBottom>
+                                </ListTile>
+                            </LocationInfoContainer>
 
-                </DescriptionContainer>
+                        </DescriptionContainer>
 
-               </Row>
+                    </ImageDescriptionContainer>
 
-               <Row>
-                    <IconListTileContainer>
-
-                        <ListTile>
-                            <ListTileContentTop>Followers</ListTileContentTop>
-                            <ListTileContentBottom>23</ListTileContentBottom>
-                        </ListTile>
-
-                        <IconUsers/>
-
-                    </IconListTileContainer>
-
-                    <VerticalLine/>
-
-                    <IconListTileContainer>
-
-                        <ListTile>
-                            <ListTileContentTop>Followers</ListTileContentTop>
-                            <ListTileContentBottom>23</ListTileContentBottom>
-                        </ListTile>
-
-                        <IconUsers/>
-
-                    </IconListTileContainer>
-
-                    <VerticalLine/>
-
-                    <IconListTileContainer>
-
-                        <ListTile>
-                            <ListTileContentTop>Followers</ListTileContentTop>
-                            <ListTileContentBottom>23</ListTileContentBottom>
-                        </ListTile>
-
-                        <IconUsers/>
-
-                    </IconListTileContainer>
-
-                    <VerticalLine/>
-
-                    <IconListTileContainer>
+                <IconListTileContainerWrapper>
+                        <IconListTileContainer>
 
                             <ListTile>
                                 <ListTileContentTop>Followers</ListTileContentTop>
                                 <ListTileContentBottom>23</ListTileContentBottom>
                             </ListTile>
 
-                        <IconUsers/>
+                            <IconUsers/>
 
-                    </IconListTileContainer>
+                        </IconListTileContainer>
 
-               </Row>
+                        <LogoIconVerticalLine/>
+
+                        <IconListTileContainer>
+
+                            <ListTile>
+                                <ListTileContentTop>Followers</ListTileContentTop>
+                                <ListTileContentBottom>23</ListTileContentBottom>
+                            </ListTile>
+
+                            <IconUsers/>
+
+                        </IconListTileContainer>
+
+                        <LogoIconVerticalLine/>
+
+                        <IconListTileContainer>
+
+                            <ListTile>
+                                <ListTileContentTop>Followers</ListTileContentTop>
+                                <ListTileContentBottom>23</ListTileContentBottom>
+                            </ListTile>
+
+                            <IconUsers/>
+
+                        </IconListTileContainer>
+
+                        <LogoIconVerticalLine/>
+
+                        <IconListTileContainer>
+
+                                <ListTile>
+                                    <ListTileContentTop>Followers</ListTileContentTop>
+                                    <ListTileContentBottom>23</ListTileContentBottom>
+                                </ListTile>
+
+                            <IconUsers/>
+
+                        </IconListTileContainer>
+
+                </IconListTileContainerWrapper>
+
+            </MainInnerContainer>
 
             </MainContainer>
     );
