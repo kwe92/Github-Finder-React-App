@@ -3,31 +3,31 @@ import {GITHUB_API_URL, GITHUB_API_TOKEN} from "../../private/ApiKey"
 import axios from "axios";
 import { SetState } from "../../types/state/stateTypes";
 
-const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
+const useUser: Function = (selectedUser: string): [object[], SetState<[]>] => {
     const [user, SetUser]: [[], SetState<[]>] = useState([]);
 
-    console.log(serchResults);
+    console.log(user);
 
-    const fetchUsers = async () => {
+    const fetchUser = async () => {
         const data = await axios.get(
-             `${GITHUB_API_URL}/search/users?q=${serchResults}`    
+             `${GITHUB_API_URL}/users/${selectedUser}`    
         ,
         { headers: {
             Authorization: GITHUB_API_TOKEN
         }});
 
-        console.log(data);
+        console.log("Data: ", data.data);
 
-        const result = data.data.items;
+        const result = data.data;
 
         SetUser(result);
 
     };
 
-    useEffect(() => {fetchUsers()},[serchResults]);
+    useEffect(() => {fetchUser()},[selectedUser]);
 
     return [user, SetUser];
 
 };
 
-export default useUsers;
+export default useUser;
