@@ -2,7 +2,7 @@ import styled, { StyledComponent } from "styled-components";
 import {FaSlackHash} from "react-icons/fa"
 import {AiOutlineCopyright} from "react-icons/ai"
 import { IconType } from "react-icons/lib";
-import { TypeStyledComponent } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/styled_component/types";
 // TODO: Change icon size maybe?
 
 const HashTag: TypeStyledComponent<IconType, {}> = styled(FaSlackHash)`
