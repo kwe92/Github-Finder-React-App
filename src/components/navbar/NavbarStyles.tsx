@@ -1,7 +1,7 @@
 import styled, { Interpolation, StyledComponent, StyledComponentBase } from "styled-components";
 import {FaGithub} from "react-icons/fa";
 import { Link as RouterLink} from "react-router-dom";
-import { TypeStyledComponent } from "../../types/state/styled_component/types";
+import { TypeStyledComponent } from "../../types/styled_component/types";
 
 const NavbarTheme = {
     fc: "white", //font-color

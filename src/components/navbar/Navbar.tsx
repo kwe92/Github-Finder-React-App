@@ -1,7 +1,7 @@
-import React, {ReactNode} from "react";
+import React, {ReactNode, FunctionComponent} from "react";
 import {Link, Navbar as StyledNavbar, Logo, GithubIcon, UlNavLinks, HamburgerMenuContainer, HamburgerMenu as HBM, LogoIconContentWrapper, StyledDropdown} from "./NavbarStyles"
 
-const Navbar = (props:{}) => 
+const Navbar: FunctionComponent = (props:{}): JSX.Element => 
         <StyledNavbar>
             <IconLogo/>
             <NavLinks/>
