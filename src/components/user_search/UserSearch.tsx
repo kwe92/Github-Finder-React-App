@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import { SetState } from "../../types/state/stateTypes";
 import { FlexWrapper, Form, Input, ClearButton, InputButton} from "./UserSearchStyles";
 
-const UserSearch = (props:{setSearch: CallableFunction}): JSX.Element => 
+interface Props{
+    setSearch: CallableFunction
+};
+
+const UserSearch: FunctionComponent<Props> = (props:Props): JSX.Element => 
        {
-        const [userInput, setUserInput] = useState("");
+        const [userInput, setUserInput]: [string, SetState<string>] = useState("");
 
         return (
        <FlexWrapper>
