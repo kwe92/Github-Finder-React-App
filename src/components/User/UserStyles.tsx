@@ -9,13 +9,6 @@ const Row: TypeStyledComponent<"div", {}> = styled.div`
 
 `;
 
-// const Row: StyledComponent<"div", any, {}, never> = styled.div`
-
-//     display: flex;
-
-// `;
-
-
 const Column: TypeStyledComponent<"div", {}> = styled.div`
 
     display: flex;
@@ -29,6 +22,14 @@ const MainContainer: TypeStyledComponent<"div", {}> = styled.div`
     // align-self: flex-start;
 
     overflow: scroll;
+
+    padding-top: 1rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2.25rem;
 
     @media(max-width: 768px){
 
@@ -176,8 +177,6 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
 
 const LocationInfoContainer = styled(Row)`
 
-    // gap: 2rem;
-
     @media(max-width:450px){
         justify-content: center;
     }
@@ -188,7 +187,7 @@ const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
 
     color: white;
 
-`;
+` as TypeStyledComponent<typeof Column, {}>;
 
 const ListTileContentTop: TypeStyledComponent<"p", {}> = styled.p`
 
@@ -296,7 +295,41 @@ const IconListTileContainerWrapper = styled(Row)`
         gap: 1rem;
     }
 
+` as TypeStyledComponent<typeof Row, {}>;
+
+
+const ListTileRepoContaner: TypeStyledComponent<"ul", {}> = styled.ul`
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+`;
+
+const ListTileRepoItem = styled(Column)`
+
+    background: #25262a;
+
+    gap: 1.25rem;
+
+    padding: 2.5rem;
+
+
+` as TypeStyledComponent<typeof Column, {}>;
+
+const BadgeRow = styled(Row)`
+
+    gap: 1rem;
+
+`;
+
+const IconBadge = styled(Row)`
+
+    gap: 0.75rem;
+
 `;
 
 
-export {MainContainer, TextIcon, ProfileImage, NameImageContainer, UserName, UserLogin, UserNameContainer, DescriptionContainer, NameContentContainer, UserBadge, HireableBadge, Bio ,Row, Column, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentBottom, ListTileContentTop,VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine}
+
+export {MainContainer, TextIcon, ProfileImage, NameImageContainer, UserName, UserLogin, UserNameContainer, DescriptionContainer, NameContentContainer, UserBadge, HireableBadge, Bio ,Row, Column, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentBottom, ListTileContentTop,VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge}
