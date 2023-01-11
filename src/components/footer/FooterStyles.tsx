@@ -78,10 +78,7 @@ const Footer: TypeStyledComponent<"div",{}> = styled.div`
     }
 
     @media (max-width:450px){
-        ${HashTag} {
-            padding: 0;
-            font-size: 1.5rem;
-        }
+        display: none;
     }
 
 `;

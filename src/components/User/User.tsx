@@ -1,5 +1,7 @@
 import React, {FunctionComponent, MouseEventHandler} from "react";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
+import { SetState } from "../../types/state/stateTypes";
+import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
 import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column, HireableBadge, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine} from "./UserStyles";
 
@@ -9,13 +11,22 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
     const [user, setUser] = useUser(state);
 
+    const [repos, setRepos] = useRepos(state);
+
+    console.log("REPOS: ",repos);
+
+    const repoListItems = repos.map((repo: any) => {
+        return <li key ={repo["id"]}>{repo["name"]}</li>;
+    });
+
     const navigate: NavigateFunction  = useNavigate();
 
     const handleBackHome: MouseEventHandler = () => navigate("/");
 
     // const handleToGithub: MouseEventHandler = () => {navigate("https://google.com")};
 
-    console.log("From User Page: ",user, state)
+    console.log("From User Page: ",user, state, repos)
+    
 
     return (
             <MainContainer>
@@ -86,7 +97,7 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
                             <ListTile>
                                 <ListTileContentTop>Followers</ListTileContentTop>
-                                <ListTileContentBottom>23</ListTileContentBottom>
+                                <ListTileContentBottom>{user["followers"]}</ListTileContentBottom>
                             </ListTile>
 
                             <IconUsers/>
@@ -98,8 +109,8 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                         <IconListTileContainer>
 
                             <ListTile>
-                                <ListTileContentTop>Followers</ListTileContentTop>
-                                <ListTileContentBottom>23</ListTileContentBottom>
+                                <ListTileContentTop>Following</ListTileContentTop>
+                                <ListTileContentBottom>{user["following"]}</ListTileContentBottom>
                             </ListTile>
 
                             <IconUsers/>
@@ -111,8 +122,8 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                         <IconListTileContainer>
 
                             <ListTile>
-                                <ListTileContentTop>Followers</ListTileContentTop>
-                                <ListTileContentBottom>23</ListTileContentBottom>
+                                <ListTileContentTop>Public Repos</ListTileContentTop>
+                                <ListTileContentBottom>{user["public_repos"]}</ListTileContentBottom>
                             </ListTile>
 
                             <IconUsers/>
@@ -124,8 +135,8 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                         <IconListTileContainer>
 
                                 <ListTile>
-                                    <ListTileContentTop>Followers</ListTileContentTop>
-                                    <ListTileContentBottom>23</ListTileContentBottom>
+                                    <ListTileContentTop>Public Gists</ListTileContentTop>
+                                    <ListTileContentBottom>{user["public_gists"]}</ListTileContentBottom>
                                 </ListTile>
 
                             <IconUsers/>
@@ -135,6 +146,12 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                 </IconListTileContainerWrapper>
 
             </MainInnerContainer>
+
+            <h1 style={{color: "white"}}>Latest Repositories</h1>
+
+            <ul style={{color: "white"}}>
+                {repoListItems}
+            </ul>
 
             </MainContainer>
     );

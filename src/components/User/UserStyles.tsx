@@ -28,6 +28,8 @@ const MainContainer: TypeStyledComponent<"div", {}> = styled.div`
 
     // align-self: flex-start;
 
+    overflow: scroll;
+
     @media(max-width: 768px){
 
         width: 95vw;
@@ -55,6 +57,10 @@ const TextIcon: TypeStyledComponent<"button", {}> = styled.button`
     border: none;
 
     color: white;
+
+    @media(max-width:450px){
+        display: none;
+    }
 
 `;
 
@@ -248,12 +254,6 @@ const IconListTileContainer = styled(Row)`
 
     }
 
-    @media(max-width: 450px){
-
-    justify-content: center; 
-
-    }
-
 ` as TypeStyledComponent<typeof Row, {}>;
 
 const ImageDescriptionContainer: TypeStyledComponent<"div", {}> = styled.div`
@@ -297,5 +297,6 @@ const IconListTileContainerWrapper = styled(Row)`
     }
 
 `;
+
 
 export {MainContainer, TextIcon, ProfileImage, NameImageContainer, UserName, UserLogin, UserNameContainer, DescriptionContainer, NameContentContainer, UserBadge, HireableBadge, Bio ,Row, Column, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentBottom, ListTileContentTop,VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine}
