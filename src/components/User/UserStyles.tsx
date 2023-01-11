@@ -1,7 +1,16 @@
-import styled, { StyledComponent } from "styled-components";
+import styled from "styled-components";
 import { TypeStyledComponent } from "../../types/styled_component/types";
-import { FaUsers } from "react-icons/fa";
+import { FaUsers, FaUserFriends } from "react-icons/fa";
+import { FiBox } from "react-icons/fi";
+import { BsFillInboxesFill, BsFillEyeFill, BsInfoLg } from "react-icons/bs";
+import { AiFillStar } from "react-icons/ai";
+import { BiGitRepoForked, BiLink } from "react-icons/bi";
 import { IconType } from "react-icons";
+
+interface IconBadgeProps {
+    primary: string;
+    secondary: string;
+}
 
 const Row: TypeStyledComponent<"div", {}> = styled.div`
 
@@ -17,17 +26,11 @@ const Column: TypeStyledComponent<"div", {}> = styled.div`
 
 `;
 
-const MainContainer: TypeStyledComponent<"div", {}> = styled.div`
-
-    // align-self: flex-start;
+const MainContainer = styled(Column)`
 
     overflow: scroll;
 
     padding-top: 1rem;
-
-    display: flex;
-
-    flex-direction: column;
 
     gap: 2.25rem;
 
@@ -81,7 +84,7 @@ const NameImageContainer = styled(Row)`
         width: auto;
     }
 
-` as TypeStyledComponent<typeof Row, {}>;
+`;
 
 const UserNameContainer = styled(Column)`
 
@@ -93,7 +96,7 @@ const UserNameContainer = styled(Column)`
 
     left: 10%;
 
-` as TypeStyledComponent<typeof Column, {}>;
+`;
 
 const UserName: TypeStyledComponent<"p", {}> = styled.p`
 
@@ -119,7 +122,7 @@ const DescriptionContainer = styled(Column)`
 
     gap: 2.25rem;
 
-` as TypeStyledComponent<typeof Column, {}>;
+`;
 
 
 const NameContentContainer= styled(Row)`
@@ -132,7 +135,7 @@ const NameContentContainer= styled(Row)`
     
     gap: 0.5rem;
 
-` as TypeStyledComponent<typeof Row, {}>;
+`;
 
 
 const UserBadge: TypeStyledComponent<"div", {}> = styled.div`
@@ -173,6 +176,11 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
         align-self: center;
     }
 
+    &:hover{
+        color:  #ff9e00;
+        border-color: #ff9e00;
+    }
+
 `;
 
 const LocationInfoContainer = styled(Row)`
@@ -181,13 +189,13 @@ const LocationInfoContainer = styled(Row)`
         justify-content: center;
     }
 
-` as TypeStyledComponent<typeof Row, {}>;
+`;
 
 const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
 
     color: white;
 
-` as TypeStyledComponent<typeof Column, {}>;
+`;
 
 const ListTileContentTop: TypeStyledComponent<"p", {}> = styled.p`
 
@@ -253,7 +261,7 @@ const IconListTileContainer = styled(Row)`
 
     }
 
-` as TypeStyledComponent<typeof Row, {}>;
+`;
 
 const ImageDescriptionContainer: TypeStyledComponent<"div", {}> = styled.div`
 
@@ -282,6 +290,60 @@ const IconUsers: TypeStyledComponent<IconType, {}> = styled(FaUsers)`
 
 `;
 
+const IconUserFriends: TypeStyledComponent<IconType, {}> = styled(FaUserFriends)`
+
+    font-size: 2rem;
+
+    color: #3259b3;
+
+`;
+
+const IconBox: TypeStyledComponent<IconType, {}> = styled(FiBox)`
+
+    font-size: 2rem;
+
+    color: #3259b3;
+
+`;
+
+const IconInBox: TypeStyledComponent<IconType, {}> = styled(BsFillInboxesFill)`
+
+    font-size: 2rem;
+
+    color: #3259b3;
+
+`;
+
+const IconEye: TypeStyledComponent<IconType, {}> = styled(BsFillEyeFill)`
+
+    font-size: 1rem;
+
+`;
+
+const IconStar: TypeStyledComponent<IconType, {}> = styled(AiFillStar)`
+
+    font-size: 1rem;
+
+`;
+
+const IconInfo: TypeStyledComponent<IconType, {}> = styled(BsInfoLg)`
+
+    font-size: 1rem;
+
+`;
+
+const IconFork: TypeStyledComponent<IconType, {}> = styled(BiGitRepoForked)`
+
+    font-size: 1rem;
+
+`;
+
+const IconLink: TypeStyledComponent<IconType, {}> = styled(BiLink)`
+
+    font-size: 2rem;
+
+`;
+
 const IconListTileContainerWrapper = styled(Row)`
 
     gap: 2rem;
@@ -295,7 +357,7 @@ const IconListTileContainerWrapper = styled(Row)`
         gap: 1rem;
     }
 
-` as TypeStyledComponent<typeof Row, {}>;
+`;
 
 
 const ListTileRepoContaner: TypeStyledComponent<"ul", {}> = styled.ul`
@@ -304,6 +366,8 @@ const ListTileRepoContaner: TypeStyledComponent<"ul", {}> = styled.ul`
 
     flex-direction: column;
 
+    color: white;
+
     gap: 1rem;
 `;
 
@@ -311,12 +375,30 @@ const ListTileRepoItem = styled(Column)`
 
     background: #25262a;
 
-    gap: 1.25rem;
+    gap: 1.5rem;
 
     padding: 2.5rem;
 
 
-` as TypeStyledComponent<typeof Column, {}>;
+`;
+
+const IconListTileRepo: TypeStyledComponent<"a", {}> = styled.a`
+
+    display: flex;
+
+    gap: 0.5rem;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    color: #eee;
+
+    &:hover{
+        color:  #ff9e00;
+    }
+
+`;
 
 const BadgeRow = styled(Row)`
 
@@ -324,12 +406,71 @@ const BadgeRow = styled(Row)`
 
 `;
 
-const IconBadge = styled(Row)`
+const IconBadge = styled(Row)<IconBadgeProps>`
 
     gap: 0.75rem;
+
+    color: ${props => props.primary};
+
+    background: ${props => props.secondary};
+
+`;
+
+const RepoTitle: TypeStyledComponent<"p",{}> = styled.p`
+
+    font-size: 1.25rem;
+
+`;
+
+const RepoHeader: TypeStyledComponent<"h2", {}> = styled.h2`
+
+    color: white;
 
 `;
 
 
 
-export {MainContainer, TextIcon, ProfileImage, NameImageContainer, UserName, UserLogin, UserNameContainer, DescriptionContainer, NameContentContainer, UserBadge, HireableBadge, Bio ,Row, Column, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentBottom, ListTileContentTop,VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge}
+export {
+          MainContainer
+        , TextIcon
+        , ProfileImage
+        , NameImageContainer
+        , UserName
+        , UserLogin
+        , UserNameContainer
+        , DescriptionContainer
+        , NameContentContainer
+        , UserBadge
+        , HireableBadge
+        , Bio
+        , Row 
+        , Column
+        , ProfileUrlButton
+        , LocationInfoContainer
+        , ListTile
+        , ListTileContentBottom
+        , ListTileContentTop
+        , VerticalLine
+        , IconListTileContainer
+        , IconUsers
+        , ImageDescriptionContainer
+        , IconListTileContainerWrapper
+        , MainInnerContainer
+        , LogoIconVerticalLine
+        , ListTileRepoContaner
+        , ListTileRepoItem
+        , BadgeRow
+        , IconBadge
+        , IconUserFriends
+        , IconBox
+        , IconInBox
+        , IconEye
+        , IconStar
+        , IconInfo
+        , IconFork
+        , IconListTileRepo
+        , IconLink
+        , RepoTitle
+        , RepoHeader
+        , 
+     }
