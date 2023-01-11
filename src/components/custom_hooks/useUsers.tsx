@@ -4,7 +4,7 @@ import axios from "axios";
 import { SetState } from "../../types/state/stateTypes";
 
 const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
-    const [user, SetUser]: [[], SetState<[]>] = useState([]);
+    const [user, setUsers]: [[], SetState<[]>] = useState([]);
 
     console.log(serchResults);
 
@@ -20,13 +20,13 @@ const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
 
         const result = data.data.items;
 
-        SetUser(result);
+        setUsers(result);
 
     };
 
     useEffect(() => {fetchUsers()},[serchResults]);
 
-    return [user, SetUser];
+    return [user, setUsers];
 
 };
 
