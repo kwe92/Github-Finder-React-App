@@ -3,7 +3,15 @@ import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
-import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column, HireableBadge, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine} from "./UserStyles";
+import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column, HireableBadge, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge} from "./UserStyles";
+
+// TODO: Replace all the duplicate icons
+// TODO: Fix the footer not completely disappearing
+// TODO: MAke navbar and footer disapear on user scroll down??
+// TODO: Fix alignment of middle section icons when the display is changed to grid
+// TODO: Finish styling the badges for the user page
+// TODO: Handle navigation onClick to the respecting clicked upon repository named in the ListTile
+// TODO: Look for other UI errors and clean code errors
 
 const User: FunctionComponent = (props:{}): JSX.Element => {
     
@@ -16,7 +24,37 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
     console.log("REPOS: ",repos);
 
     const repoListItems = repos.map((repo: any) => {
-        return <li key ={repo["id"]}>{repo["name"]}</li>;
+        return <li key ={repo["id"]}>
+            <ListTileRepoItem>
+
+                {repo["name"]}
+                
+                <BadgeRow>
+
+                    <IconBadge>
+                        <IconUsers/>
+                        <p>24</p>
+                    </IconBadge>
+
+                    <IconBadge>
+                        <IconUsers/>
+                        <p>24</p>
+                    </IconBadge>
+
+                    <IconBadge>
+                        <IconUsers/>
+                        <p>24</p>
+                    </IconBadge>
+
+                    <IconBadge>
+                        <IconUsers/>
+                        <p>24</p>
+                    </IconBadge>
+
+                </BadgeRow>
+
+            </ListTileRepoItem>
+        </li>;
     });
 
     const navigate: NavigateFunction  = useNavigate();
@@ -32,7 +70,7 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
             <MainContainer>
                 {/* Parse out into its own dive and margin auto? */}
                 <MainInnerContainer>
-                    <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon>
+                    {/* <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon> */}
                             
                             {/* Profile Image */}
                     <ImageDescriptionContainer>
@@ -149,9 +187,9 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
             <h1 style={{color: "white"}}>Latest Repositories</h1>
 
-            <ul style={{color: "white"}}>
+            <ListTileRepoContaner style={{color: "white"}}>
                 {repoListItems}
-            </ul>
+            </ListTileRepoContaner>
 
             </MainContainer>
     );
