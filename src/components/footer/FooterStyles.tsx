@@ -83,4 +83,5 @@ const Footer: TypeStyledComponent<"div",{}> = styled.div`
 
 `;
 
+
 export {HashTag, FooterContentWrapper, CopyrightIcon, CopyrightContent, Footer};
