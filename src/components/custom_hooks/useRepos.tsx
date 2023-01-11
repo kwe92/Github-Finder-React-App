@@ -21,7 +21,7 @@ const useRepos: Function = (selectedUser: string): [object[], SetState<[]>] => {
             Authorization: GITHUB_API_TOKEN
         }});
 
-        // console.log("Repos: ", data);
+        // console.log("Repos: ", data)
 
         const result = data.data;
 
