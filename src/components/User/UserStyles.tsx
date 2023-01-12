@@ -105,7 +105,11 @@ const UserName: TypeStyledComponent<"p", {}> = styled.p`
 
     font-weight: bold;
 
+    font-size: 1.5rem;
+
+    @media(max-width: 900px){
     font-size: 1rem;
+    }
 
 `;
 
@@ -113,7 +117,15 @@ const UserLogin: TypeStyledComponent<"p", {}> = styled.p`
 
     color: white;
 
-    font-size: 0.5rem;
+    font-size: 1.5rem;
+
+    @media(max-width:900px){
+        font-size: 1rem;
+    }
+
+    @media(max-width:300px){
+        display: none;
+    }
 
 `;
 
@@ -143,19 +155,6 @@ const NameContentContainer= styled(Row)`
     @media(max-width:450px){
         justify-content: center;
     }
-
-`;
-
-
-const UserBadge: TypeStyledComponent<"div", {}> = styled.div`
-
-    color: white;
-
-`;
-
-const HireableBadge: TypeStyledComponent<"div", {}> = styled.div`
-
-    color: white;
 
 `;
 
@@ -198,30 +197,6 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
     }
 
 `;
-
-// const LocationInfoContainer = styled(Row)`
-
-//     @media(max-width:450px){
-//         justify-content: center;
-//     }
-
-// `;
-
-// const LocationInfoContainer = styled(Row)`
-
-//     @media(max-width:450px){
-//         justify-content: center;
-
-//         display: grid;
-
-//         grid-template-columns: auto auto;
-
-//         grid-column-gap: 1rem;
-
-//         grid-row-gap: 0.5rem;
-//     }
-
-// `;
 
 const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
 
@@ -351,6 +326,10 @@ const IconListTileContainer = styled(Row)`
 
     }
 
+    @media(max-width:300px){
+        width: 100%;
+    }
+
 `;
 
 const ImageDescriptionContainer: TypeStyledComponent<"div", {}> = styled.div`
@@ -449,6 +428,14 @@ const IconListTileContainerWrapper = styled(Row)`
         grid-template-columns: auto auto;
     }
 
+    @media(max-width:300px){
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 0rem 0.5rem;
+    }
 `;
 
 
@@ -542,8 +529,6 @@ export {
         , UserNameContainer
         , DescriptionContainer
         , NameContentContainer
-        , UserBadge
-        , HireableBadge
         , Bio
         , Row 
         , Column
