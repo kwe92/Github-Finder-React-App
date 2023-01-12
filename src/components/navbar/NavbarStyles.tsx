@@ -112,13 +112,27 @@ padding-right: 1.5rem;
 
 `;
 
-const LogoIconContentWrapper: TypeStyledComponent<"div",{}> = styled.div`
+// const LogoIconContentWrapper: TypeStyledComponent<"div",{}> = styled.div`
+
+// display: flex;
+
+// gap:1rem;
+
+// padding-left: 1.5rem;
+
+// `;
+
+const LogoIconContentWrapper: TypeStyledComponent<"button",{}> = styled.button`
 
 display: flex;
 
 gap:1rem;
 
 padding-left: 1.5rem;
+
+background: none;
+
+border: none;
 
 `;
 
