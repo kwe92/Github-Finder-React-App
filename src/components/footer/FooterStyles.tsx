@@ -77,9 +77,9 @@ const Footer: TypeStyledComponent<"div",{}> = styled.div`
         }
     }
 
-    @media (max-width:450px){
-        display: none;
-    }
+    // @media (max-width:450px){
+    //     display: none;
+    // }
 
 `;
 
