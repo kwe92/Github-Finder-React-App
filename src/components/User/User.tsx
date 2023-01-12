@@ -3,7 +3,7 @@ import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
-import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column, HireableBadge, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
+import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
 
 // TODO: Fix Static Location Data!!
 
@@ -89,11 +89,6 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                     <NameImageContainer>
 
                             <ProfileImage src={user["avatar_url"]}/>
-{/* 
-                            <UserNameContainer>
-                                <UserName>{user["name"]}</UserName>
-                                <UserLogin>{user["login"]}</UserLogin>
-                            </UserNameContainer> */}
 
                         </NameImageContainer>
 
@@ -101,11 +96,13 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
                             <NameContentContainer>
                                 <UserName>{user["name"]}</UserName>
-                                <UserLogin style={{fontSize: "1rem"}}>{user["login"]}</UserLogin>
+                                <UserLogin>{user["login"]}</UserLogin>
 
-                                <UserBadge>{user["type"]}</UserBadge>
+                                <IconBadge primary={"#00b0ff"} secondary={"rgba(0, 176, 255, 0.2)"}>{user["type"]}</IconBadge>
+
                                 {/* TODO: If hireable is null || hireable the badge is green else not hireable*/}
-                                <HireableBadge>hireable</HireableBadge>
+                                <IconBadge primary={"#007f5f"} secondary={"rgba(0, 127, 95, 0.2)"}>hireable</IconBadge>
+
 
                             </NameContentContainer>
 
