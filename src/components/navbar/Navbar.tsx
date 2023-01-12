@@ -1,21 +1,32 @@
-import React, {ReactNode, FunctionComponent} from "react";
+import React, {ReactNode, FunctionComponent, MouseEventHandler} from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import {Link, Navbar as StyledNavbar, Logo, GithubIcon, UlNavLinks, HamburgerMenuContainer, HamburgerMenu as HBM, LogoIconContentWrapper, StyledDropdown} from "./NavbarStyles"
 
 const Navbar: FunctionComponent = (props:{}): JSX.Element => 
-        <StyledNavbar>
-            <IconLogo/>
-            <NavLinks/>
-            <HamburgerMenuContainer>
-                <HamburgerMenu/>
-                <StyledDropdown>
-                    <Home/>
-                    <About/>
-                </StyledDropdown>
-        </HamburgerMenuContainer>
-        </StyledNavbar>;
+       {
+
+        const navigate: NavigateFunction = useNavigate();
+
+        const toHome = () => {
+            navigate("/");
+        };
+        return (
+                <StyledNavbar>
+                    <IconLogo onClick={toHome}/>
+                    <NavLinks/>
+                    <HamburgerMenuContainer>
+                        <HamburgerMenu/>
+                        <StyledDropdown>
+                            <Home/>
+                            <About/>
+                        </StyledDropdown>
+                    </HamburgerMenuContainer>
+                </StyledNavbar>
+        );
+       };
    
-    const Wrapper1 = (props:{children?: ReactNode}) => 
-        <LogoIconContentWrapper>{props.children}</LogoIconContentWrapper>;
+    const Wrapper1 = (props:{children?: ReactNode, onClick: Function}) => 
+        <LogoIconContentWrapper onClick={() => {props.onClick()}}>{props.children}</LogoIconContentWrapper>;
 
     const Home = (props:{}) => 
         <li><Link to ="/">Home</Link></li>;
@@ -26,8 +37,8 @@ const Navbar: FunctionComponent = (props:{}): JSX.Element =>
     const HamburgerMenu = (props:{}) => 
         <HBM>&#9776;</HBM>;
 
-    const IconLogo = (props:{}) =>
-        <Wrapper1> 
+    const IconLogo = (props: {onClick: Function}) =>
+        <Wrapper1 onClick={props.onClick}> 
             <GithubIcon/>
             <Logo>
                 Github Finder
