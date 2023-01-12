@@ -34,6 +34,9 @@ const MainContainer = styled(Column)`
 
     gap: 2.25rem;
 
+    width: 95vw;
+
+
     @media(max-width: 768px){
 
         width: 95vw;
@@ -78,8 +81,6 @@ const NameImageContainer = styled(Row)`
 
     position: relative;
 
-    width: 20rem;
-
     @media(max-width:450px){
         width: auto;
     }
@@ -104,7 +105,7 @@ const UserName: TypeStyledComponent<"p", {}> = styled.p`
 
     font-weight: bold;
 
-    font-size: 2rem;
+    font-size: 1rem;
 
 `;
 
@@ -112,15 +113,19 @@ const UserLogin: TypeStyledComponent<"p", {}> = styled.p`
 
     color: white;
 
-    font-size: 1rem;
+    font-size: 0.5rem;
 
 `;
 
 const DescriptionContainer = styled(Column)`
 
     // background: green;
+    
+    justify-content: space-between;
 
     gap: 2.25rem;
+
+    padding: 1rem 0rem;
 
 `;
 
@@ -134,6 +139,10 @@ const NameContentContainer= styled(Row)`
     align-items: center;
     
     gap: 0.5rem;
+
+    @media(max-width:450px){
+        justify-content: center;
+    }
 
 `;
 
@@ -150,10 +159,17 @@ const HireableBadge: TypeStyledComponent<"div", {}> = styled.div`
 
 `;
 
-const Bio: TypeStyledComponent<"div", {}> = styled.div`
+const Bio = styled(Row)`
+
+    align-items: center;
 
     color: white;
 
+    padding-right: 0.5rem;
+
+    @media(max-width:450px){
+        text-align: center;
+    }
 `;
 
 const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
@@ -183,19 +199,61 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
 
 `;
 
-const LocationInfoContainer = styled(Row)`
+// const LocationInfoContainer = styled(Row)`
 
-    @media(max-width:450px){
-        justify-content: center;
-    }
+//     @media(max-width:450px){
+//         justify-content: center;
+//     }
 
-`;
+// `;
+
+// const LocationInfoContainer = styled(Row)`
+
+//     @media(max-width:450px){
+//         justify-content: center;
+
+//         display: grid;
+
+//         grid-template-columns: auto auto;
+
+//         grid-column-gap: 1rem;
+
+//         grid-row-gap: 0.5rem;
+//     }
+
+// `;
 
 const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
 
     color: white;
 
+    gap: 0.25rem;
+
+ 
+
 `;
+
+const LocationInfoContainer = styled(Row)`
+
+    @media(max-width:450px){
+        justify-content: center;
+
+        display: grid;
+
+        grid-template-columns: auto auto;
+
+        grid-column-gap: 1rem;
+
+        grid-row-gap: 0.5rem;
+    }
+
+    ${ListTile} {
+
+        gap: 0.125rem;
+        
+    }
+`;
+
 
 const ListTileContentTop: TypeStyledComponent<"p", {}> = styled.p`
 
@@ -211,22 +269,43 @@ const ListTileContentBottom: TypeStyledComponent<"p", {}> = styled.p`
 
     font-weight: bold;
 
+    @media(max-width:900px){
+        font-size: 1rem;
+    }
+
 `;
 
 const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     //TODO: Change to grey or some form of grey
-    border: 1px solid grey;
+    background: grey;
 
-    // height: 100%;
+    padding: 0rem 0.03125rem;
     
-    margin: 0rem 2rem;
+    margin: 0rem 1.75rem;
 
     height: 3rem;
 
-    @media(max-width:450px){
+    @media(max-width:900px){
+
+        margin: 0rem 1.25rem;
         
-    margin: 0rem 1rem;
+    }
+
+    @media(max-width:768px){
+
+        margin: 0rem 1rem;
+
+        background: grey;
+
+    };
+
+    @media(max-width:450px){
+
+        margin: 0rem 1rem;
+
+        // TODO: maybe remove display: none;
+        display: none;
 
     }
 
@@ -235,11 +314,14 @@ const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 const LogoIconVerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     //TODO: Change to grey or some form of grey
-    border: 1px solid grey;
+
+    background: grey;
+
+    padding: 0rem 0.03125rem;
 
     height: 3rem;
 
-    @media(max-width:450px){
+    @media(max-width:768px){
         
         display: none;
 
@@ -254,10 +336,18 @@ const IconListTileContainer = styled(Row)`
 
     gap: 4rem;
 
+    @media(max-width:900px){
+    gap: 2rem;
+
+    }
+    
     @media(max-width: 768px){
 
-        width: 10rem;
-        gap: 2rem;
+    width: 10rem;
+
+    align-items: center;
+
+    justify-content: space-between;
 
     }
 
@@ -346,15 +436,17 @@ const IconLink: TypeStyledComponent<IconType, {}> = styled(BiLink)`
 
 const IconListTileContainerWrapper = styled(Row)`
 
-    gap: 2rem;
+    gap: 1.5rem;
 
-    @media(max-width:450px){
+    align-items: center;
+
+    justify-content: center;
+
+    @media(max-width:768px){
         
         display: grid;
 
         grid-template-columns: auto auto;
-
-        gap: 1rem;
     }
 
 `;
@@ -408,7 +500,11 @@ const BadgeRow = styled(Row)`
 
 const IconBadge = styled(Row)<IconBadgeProps>`
 
-    gap: 0.75rem;
+    gap: 0.5rem;
+
+    padding: 0.125rem 0.25rem;
+
+    border-radius: 1rem;
 
     color: ${props => props.primary};
 
@@ -422,9 +518,15 @@ const RepoTitle: TypeStyledComponent<"p",{}> = styled.p`
 
 `;
 
-const RepoHeader: TypeStyledComponent<"h2", {}> = styled.h2`
+const RepoHeader = styled(Row)`
+
+    font-size: 1.5rem;
 
     color: white;
+
+    align-items: center;
+
+    justify-content: center;
 
 `;
 
