@@ -5,15 +5,15 @@ import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
 import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, UserBadge, Bio, Row, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, Column, HireableBadge, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
 
-// TODO: Replace all the duplicate icons
+// TODO: Fix Static Location Data!!
+
+
 // TODO: Fix the footer not completely disappearing
 // TODO: Make navbar and footer disapear on user scroll down??
 // TODO: Fix alignment of middle section icons when the display is changed to grid
 // TODO: Finish styling the badges for the user page
-// TODO: Handle navigation onClick to the respecting clicked upon repository named in the ListTile
 // TODO: Look for other UI errors and clean code errors
 // TODO: Change <a> redirect to a new tab
-// TODO: Round the IconBadgeContainer and add a little padding to it
 
 const User: FunctionComponent = (props:{}): JSX.Element => {
     
@@ -42,22 +42,22 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                 </IconListTileRepo>
                 <BadgeRow>
                     
-                    <IconBadge primary={"#00b0ff"} secondary = {"rgba(0, 176, 255, 0.2)"}>
+                    <IconBadge primary={"#00b0ff"} secondary={"rgba(0, 176, 255, 0.2)"}>
                         <IconEye/>
                         <p>{repo["watchers_count"]}</p>
                     </IconBadge>
 
-                    <IconBadge>
+                    <IconBadge primary={"#fcf300"} secondary={"rgba(252, 243, 0, 0.2)"}>
                         <IconStar/>
                         <p>{repo["stargazers_count"]}</p>
                     </IconBadge>
 
-                    <IconBadge>
+                    <IconBadge primary={"#dc2f02"} secondary={"rgba(220, 47, 2, 0.2)"}>
                         <IconInfo/>
                         <p>{repo["open_issues_count"]}</p>
                     </IconBadge>
 
-                    <IconBadge>
+                    <IconBadge primary={"#007f5f"} secondary={"rgba(0, 127, 95, 0.2)"}>
                         <IconFork/>
                         <p>{repo["forks_count"]}</p>
                     </IconBadge>
@@ -79,7 +79,7 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
     return (
             <MainContainer>
-                {/* Parse out into its own dive and margin auto? */}
+                {/* Parse out into its own div and margin auto? */}
                 <MainInnerContainer>
                     {/* <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon> */}
                             
@@ -89,11 +89,11 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                     <NameImageContainer>
 
                             <ProfileImage src={user["avatar_url"]}/>
-
+{/* 
                             <UserNameContainer>
                                 <UserName>{user["name"]}</UserName>
                                 <UserLogin>{user["login"]}</UserLogin>
-                            </UserNameContainer>
+                            </UserNameContainer> */}
 
                         </NameImageContainer>
 
@@ -101,6 +101,8 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
                             <NameContentContainer>
                                 <UserName>{user["name"]}</UserName>
+                                <UserLogin style={{fontSize: "1rem"}}>{user["login"]}</UserLogin>
+
                                 <UserBadge>{user["type"]}</UserBadge>
                                 {/* TODO: If hireable is null || hireable the badge is green else not hireable*/}
                                 <HireableBadge>hireable</HireableBadge>
@@ -118,14 +120,15 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                             <LocationInfoContainer>
                                 <ListTile>
                                     <ListTileContentTop>Location</ListTileContentTop>
-                                    <ListTileContentBottom>San Antonio</ListTileContentBottom>
+                                    {user["location"] ? <ListTileContentBottom>{user["location"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
+
                                 </ListTile>
 
                                 <VerticalLine/>
 
                                 <ListTile>
                                     <ListTileContentTop>Website</ListTileContentTop>
-                                    <ListTileContentBottom>ayon.io</ListTileContentBottom>
+                                    {user["blog"] ? <ListTileContentBottom>{user["blog"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
                                 </ListTile>
 
                                 <VerticalLine/>
@@ -133,7 +136,7 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
                                 <ListTile>
                                     <ListTileContentTop>Twitter</ListTileContentTop>
-                                    <ListTileContentBottom>AyonInnovations</ListTileContentBottom>
+                                    {user["twitter_username"] ? <ListTileContentBottom>{user["twitter_username"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
                                 </ListTile>
                             </LocationInfoContainer>
 
