@@ -8,7 +8,7 @@ const NavbarTheme = {
     fsXL: "1.875rem" // font-size xtra large
 };
 
-const Link: TypeStyledComponent<typeof RouterLink, {}> = styled(RouterLink)`
+const Link: TypeStyledComponent<"div", {}> = styled.div`
 
 color: ${NavbarTheme.fc};
 
