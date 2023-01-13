@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import { TypeStyledComponent } from "../../types/styled_component/types";
 import { FaUsers, FaUserFriends } from "react-icons/fa";
 import { FiBox } from "react-icons/fi";
@@ -30,18 +30,16 @@ const MainContainer = styled(Column)`
 
     overflow: scroll;
 
-    padding-top: 2.75rem;
+    padding-top: 1rem;
 
-    gap: 3.75rem;
+    gap: 2.25rem;
 
-    width: 90vw;
+    width: 95vw;
 
-    @media(max-width: 800px){
 
-        width: 87.5vw;
+    @media(max-width: 768px){
 
-        padding-top: 2.25rem;
-
+        width: 95vw;
 
     }
 
@@ -49,13 +47,9 @@ const MainContainer = styled(Column)`
 
 const MainInnerContainer = styled(Column)`
 
-    gap: 2.75rem;
+    gap: 2rem;
 
-    // @media(max-width:450px){
-    //     gap:0.75;
-    // }
-
-    @media(max-width:675px){
+    @media(max-width:450px){
         gap:0.75;
     }
 
@@ -71,11 +65,7 @@ const TextIcon: TypeStyledComponent<"button", {}> = styled.button`
 
     color: white;
 
-    // @media(max-width:450px){
-    //     display: none;
-    // }
-
-    @media(max-width:675px){
+    @media(max-width:450px){
         display: none;
     }
 
@@ -85,37 +75,19 @@ const ProfileImage: TypeStyledComponent<"img", {}> = styled.img`
     width: 24rem;
 
     @media(max-width:850px){
-
         width: 18rem;
-
-        height: 100%;
     }
 
-    // @media(max-width:450px){
-    //     width: 100%;
-    // }
-
-    @media(max-width:675px){
+    @media(max-width:450px){
         width: 100%;
     }
 `;
 
-const ButtonImageContainer = styled(Column)`
+const NameImageContainer = styled(Row)`
 
-    gap: 1.5rem;
-
-    align-items: center;
-
-    justify-content: center;
-
-    @media(max-width:800px){
-        justify-content: space-between;
+    @media(max-width:450px){
+        width: auto;
     }
-
-    // TODO: Maybe remove
-    // @media(max-width:675px){
-    //     width: auto;
-    // }
 
 `;
 
@@ -140,7 +112,7 @@ const UserName: TypeStyledComponent<"p", {}> = styled.p`
     font-size: 1.5rem;
 
     @media(max-width: 900px){
-    display: none;
+    font-size: 1rem;
     }
 
 `;
@@ -151,25 +123,43 @@ const UserLogin: TypeStyledComponent<"p", {}> = styled.p`
 
     font-size: 1.5rem;
 
+    @media(max-width:900px){
+        font-size: 1rem;
+    }
+
+    @media(max-width:300px){
+        display: none;
+    }
+
 `;
 
 const DescriptionContainer = styled(Column)`
 
     // background: green;
-
-    width: 60%;
     
     justify-content: space-between;
 
     gap: 2.25rem;
 
-    // @media(max-width:600px){
-    // width: auto;
-    // }
+    padding: 1rem 0rem;
 
-    @media(max-width:675px){
-        width: auto;
-        }
+`;
+
+
+const NameContentContainer= styled(Row)`
+
+    height: fit-content;
+
+    // background: blue;
+
+    align-items: center;
+    
+    gap: 0.5rem;
+
+    @media(max-width:450px){
+        justify-content: center;
+    }
+
 `;
 
 const Bio = styled(Row)`
@@ -178,15 +168,9 @@ const Bio = styled(Row)`
 
     color: white;
 
-    font-size: 1.25rem;
-
     padding-right: 0.5rem;
 
-    // @media(max-width:450px){
-    //     text-align: center;
-    // }
-    
-    @media(max-width:675px){
+    @media(max-width:450px){
         text-align: center;
     }
 `;
@@ -195,9 +179,7 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
 
     text-decoration: none;
 
-    width: 100%;
-
-    text-align: center;
+    width: fit-content;
 
     color: white;
 
@@ -209,11 +191,7 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
 
     border-radius: 10px;
 
-    // @media(max-width:450px){
-    //     align-self: center;
-    // }
-
-    @media(max-width:675px){
+    @media(max-width:450px){
         align-self: center;
     }
 
@@ -228,62 +206,52 @@ const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
 
     color: white;
 
-    gap: 0.75rem;
+    gap: 0.25rem;
 
  
 
 `;
 
+const LocationInfoContainer = styled(Row)`
+
+    @media(max-width:450px){
+        justify-content: center;
+
+        display: grid;
+
+        grid-template-columns: auto auto;
+
+        grid-column-gap: 1rem;
+
+        grid-row-gap: 0.5rem;
+    }
+
+    ${ListTile} {
+
+        gap: 0.125rem;
+        
+    }
+`;
+
+
 const ListTileContentTop: TypeStyledComponent<"p", {}> = styled.p`
 
     color: grey;
 
-    font-size: 1.25rem;
-
-    @media(max-width:1024px){
-        font-size: 1rem;
-    }
+    font-size: 1rem;
 
 `;
 
 const ListTileContentBottom: TypeStyledComponent<"p", {}> = styled.p`
 
-    font-size: 1.75rem;
+    font-size: 1.25rem;
 
     font-weight: bold;
 
-    @media(max-width:1024px){
-        font-size: 1.25rem;
+    @media(max-width:900px){
+        font-size: 1rem;
     }
 
-`;
-
-const LocationInfoContainer = styled(Row)`
-
-    @media(max-width:1024px){
-
-        justify-content: space-between;
-
-        display: grid;
-
-        grid-template-columns: auto;
-
-        grid-row-gap: 1.75rem;
-    }
-
-    @media(max-width:675px){
-        display: none;
-    }
-
-    ${ListTile} {
-
-        gap: 0.75rem;
-        
-    }
-
-    ${ListTileContentBottom}{
-        font-size: 1.5rem;
-    }
 `;
 
 const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
@@ -293,14 +261,13 @@ const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     padding: 0rem 0.03125rem;
     
-    margin: 0rem 4rem;
+    margin: 0rem 1.75rem;
 
-    // height: 3rem;
+    height: 3rem;
 
-    @media(max-width:1024px){
+    @media(max-width:900px){
 
-        // margin: 0rem 1.25rem;
-        display: none;
+        margin: 0rem 1.25rem;
         
     }
 
@@ -312,15 +279,12 @@ const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     };
 
-    // @media(max-width:450px){
-
-    //     margin: 0rem 1rem;
-
-    // }
-
-    @media(max-width:675px){
+    @media(max-width:450px){
 
         margin: 0rem 1rem;
+
+        // TODO: maybe remove display: none;
+        display: none;
 
     }
 
@@ -334,9 +298,7 @@ const LogoIconVerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     padding: 0rem 0.03125rem;
 
-    height: 4rem;
-
-    margin: 0rem 1.25rem;
+    height: 3rem;
 
     @media(max-width:768px){
         
@@ -353,10 +315,6 @@ const IconListTileContainer = styled(Row)`
 
     gap: 4rem;
 
-    width: 100%;
-
-    justify-content: space-between;
-
     @media(max-width:900px){
     gap: 2rem;
 
@@ -364,7 +322,7 @@ const IconListTileContainer = styled(Row)`
     
     @media(max-width: 768px){
 
-    width: auto;
+    width: 10rem;
 
     align-items: center;
 
@@ -384,71 +342,78 @@ const ImageDescriptionContainer: TypeStyledComponent<"div", {}> = styled.div`
 
     gap: 2rem;
 
-    // @media(max-width:450px){
-    //     flex-direction: column;
-    // }
-
-    @media(max-width:675px){
+    @media(max-width:450px){
         flex-direction: column;
     }
 
     @media(max-width: 768px){
 
-        gap: auto;
+        gap: 1rem;
 
     }
 
 
 `; 
 
-const IconCSS = css`
+const IconUsers: TypeStyledComponent<IconType, {}> = styled(FaUsers)`
 
-    font-size: 3.75rem;
+    font-size: 2rem;
 
     color: #3259b3;
-
-    @media(900px){
-    font-size: 1.75rem;
-    }
-
-`;
-
-const IconUsers: TypeStyledComponent<IconType, {}> = styled(FaUsers)`
-    ${IconCSS}
 
 `;
 
 const IconUserFriends: TypeStyledComponent<IconType, {}> = styled(FaUserFriends)`
-    ${IconCSS}
+
+    font-size: 2rem;
+
+    color: #3259b3;
+
 `;
 
 const IconBox: TypeStyledComponent<IconType, {}> = styled(FiBox)`
-    ${IconCSS}
+
+    font-size: 2rem;
+
+    color: #3259b3;
+
 `;
 
 const IconInBox: TypeStyledComponent<IconType, {}> = styled(BsFillInboxesFill)`
-    ${IconCSS}
+
+    font-size: 2rem;
+
+    color: #3259b3;
+
 `;
 
 const IconEye: TypeStyledComponent<IconType, {}> = styled(BsFillEyeFill)`
 
-    // font-size: 1rem;
+    font-size: 1rem;
 
 `;
 
 const IconStar: TypeStyledComponent<IconType, {}> = styled(AiFillStar)`
 
+    font-size: 1rem;
+
 `;
 
 const IconInfo: TypeStyledComponent<IconType, {}> = styled(BsInfoLg)`
+
+    font-size: 1rem;
 
 `;
 
 const IconFork: TypeStyledComponent<IconType, {}> = styled(BiGitRepoForked)`
 
+    font-size: 1rem;
+
 `;
 
 const IconLink: TypeStyledComponent<IconType, {}> = styled(BiLink)`
+
+    font-size: 2rem;
 
 `;
 
@@ -460,30 +425,11 @@ const IconListTileContainerWrapper = styled(Row)`
 
     justify-content: center;
 
-    @media(max-width:1024px){
-        gap: 0.5rem;
-    }
-
-    @media(max-width:900px){
-        gap: 0rem;
-    }
-
     @media(max-width:768px){
         
         display: grid;
 
-        grid-template-columns: 47.25% 47.25%;
-
-         grid-column-gap: 2rem;
-
-         grid-row-gap: 2rem;
-
-    }
-
-    @media(max-width:450px){
-
-    grid-template-columns: 45% 45%;
-
+        grid-template-columns: auto auto;
     }
 
     @media(max-width:300px){
@@ -505,7 +451,7 @@ const ListTileRepoContaner: TypeStyledComponent<"ul", {}> = styled.ul`
 
     color: white;
 
-    gap: 2.5rem;
+    gap: 1rem;
 `;
 
 const ListTileRepoItem = styled(Column)`
@@ -541,8 +487,6 @@ const BadgeRow = styled(Row)`
 
     gap: 1rem;
 
-    font-size: 1.25rem;
-
 `;
 
 const IconBadge = styled(Row)<IconBadgeProps>`
@@ -561,13 +505,13 @@ const IconBadge = styled(Row)<IconBadgeProps>`
 
 const RepoTitle: TypeStyledComponent<"p",{}> = styled.p`
 
-    font-size: 1.75rem;
+    font-size: 1.25rem;
 
 `;
 
 const RepoHeader = styled(Row)`
 
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 
     color: white;
 
@@ -575,37 +519,15 @@ const RepoHeader = styled(Row)`
 
     justify-content: center;
 
-    @media(max-width:800px){
-    font-size: 2rem;
-    }
-
 `;
 
-const NameContentContainer= styled(Row)`
 
-    height: fit-content;
-
-    // background: blue;
-
-    align-items: center;
-    
-    gap: 0.5rem;
-
-    @media(max-width:800px){
-        justify-content: space-between;
-    }
-
-    ${IconBadge}{
-        font-size: 1.25rem;
-    }
-
-`;
 
 export {
           MainContainer
         , TextIcon
         , ProfileImage
-        , ButtonImageContainer
+        , NameImageContainer
         , UserName
         , UserLogin
         , UserNameContainer
