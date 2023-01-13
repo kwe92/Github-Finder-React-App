@@ -1,7 +1,9 @@
 import React,{FunctionComponent} from "react";
 import {FooterContentWrapper as FooterWraper, CopyrightContent, HashTag, Footer as StyledFooter, CopyrightIcon} from "./FooterStyles";
 
-const Footer: FunctionComponent = (props:{}): JSX.Element =>
+
+
+const Footer: FunctionComponent = ({}): JSX.Element =>
         <StyledFooter>
             <FooterContent/>
         </StyledFooter>;
