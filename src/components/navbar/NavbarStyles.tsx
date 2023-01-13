@@ -82,8 +82,6 @@ font-size: ${NavbarTheme.fsXL};
 
 gap: 1rem;
 
-padding-right: 1.5rem;
-
 @media (max-width:768px){
 
     display: none;
@@ -109,36 +107,31 @@ font-size: 3rem;
 
 display: none;
 
-padding-right: 1.5rem;
 
 @media (max-width:768px){
 
     display: block;
 }
 
+@media(max-width:675px){
+  padding-right: 1.5rem;
+}
+
 `;
-
-// const LogoIconContentWrapper: TypeStyledComponent<"div",{}> = styled.div`
-
-// display: flex;
-
-// gap:1rem;
-
-// padding-left: 1.5rem;
-
-// `;
 
 const LogoIconContentWrapper: TypeStyledComponent<"button",{}> = styled.button`
 
-display: flex;
+  display: flex;
 
-gap:1rem;
+  gap:1rem;
 
-padding-left: 1.5rem;
+  background: none;
 
-background: none;
+  border: none;
 
-border: none;
+  @media(max-width:675px){
+    padding-left: 1.5rem;
+  }
 
 `;
 
