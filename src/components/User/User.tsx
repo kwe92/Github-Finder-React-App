@@ -3,8 +3,9 @@ import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
-import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
+import {MainContainer, TextIcon, ProfileImage, ButtonImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
 
+// TODO: Move Website up somewhere else, it takes up alot of space for some users
 // TODO: Fix Static Location Data!!
 // TODO: Fix the footer not completely disappearing
 // TODO: Make navbar and footer disapear on user scroll down??
@@ -110,11 +111,17 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
                             {/* Profile Image */}
                     <ImageDescriptionContainer>
 
-                    <NameImageContainer>
+                        <ButtonImageContainer>
 
+                            {/* <div style={{display: "flex"}}> */}
                             <ProfileImage src={user["avatar_url"]}/>
+                            {/* </div> */}
 
-                        </NameImageContainer>
+                            <ProfileUrlButton href={user["html_url"]} target="_blank">
+                                VISIT GITHUB PROFILE
+                            </ProfileUrlButton>
+
+                        </ButtonImageContainer>
 
                         <DescriptionContainer>
 
@@ -134,11 +141,12 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
                                 {user["bio"]}
                             </Bio>
 
-                            <ProfileUrlButton href={user["html_url"]} target="_blank">
+                            {/* <ProfileUrlButton href={user["html_url"]} target="_blank">
                                 VISIT GITHUB PROFILE
-                            </ProfileUrlButton>
+                            </ProfileUrlButton> */}
 
                             <LocationInfoContainer>
+
                                 <ListTile>
                                     <ListTileContentTop>Location</ListTileContentTop>
                                     {user["location"] ? <ListTileContentBottom>{user["location"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
@@ -166,6 +174,7 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
                     </ImageDescriptionContainer>
 
                 <IconListTileContainerWrapper>
+                    
                         <IconListTileContainer>
 
                             <ListTile>
