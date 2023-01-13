@@ -44,6 +44,8 @@ const Footer: TypeStyledComponent<"div",{}> = styled.div`
 
     display: flex;
 
+    padding-bottom: 1rem;
+
     flex-direction: column;
 
     align-items: center;
