@@ -41,6 +41,7 @@ const CopyrightContent: TypeStyledComponent<"p", {}> = styled.p`
 
 const Footer: TypeStyledComponent<"div",{}> = styled.div`
 
+
     display: flex;
 
     flex-direction: column;
@@ -82,6 +83,8 @@ const Footer: TypeStyledComponent<"div",{}> = styled.div`
     // }
 
 `;
+
+
 
 
 export {HashTag, FooterContentWrapper, CopyrightIcon, CopyrightContent, Footer};
