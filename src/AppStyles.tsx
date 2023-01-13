@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import { TypeStyledComponent } from "./types/styled_component/types";
 
-const AppContentWrapper: TypeStyledComponent< "div",{}> = styled.div`
+const AppContentWrapper: TypeStyledComponent< "div",{isScrolling: boolean}> = styled.div<{isScrolling: boolean}>`
 
     height: 100vh;
+
+    //TODO: Continue working on disapearing footer
+
+    height: ${(props) => props.isScrolling ? "auto" : "100vh"};
+
+    // height: 100vh;
 
     width: 100vw;
 
