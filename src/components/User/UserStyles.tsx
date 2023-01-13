@@ -112,11 +112,6 @@ const ButtonImageContainer = styled(Column)`
         justify-content: space-between;
     }
 
-    // TODO: Maybe remove
-    // @media(max-width:675px){
-    //     width: auto;
-    // }
-
 `;
 
 const UserNameContainer = styled(Column)`
@@ -157,15 +152,19 @@ const DescriptionContainer = styled(Column)`
 
     // background: green;
 
-    width: 60%;
+    width: 75%;
     
     justify-content: space-between;
 
     gap: 2.25rem;
 
-    // @media(max-width:600px){
-    // width: auto;
-    // }
+    @media(max-width: 1024px){
+    width: 55%;
+    }
+
+    @media(max-width: 850px){
+        width: 52.5%;
+        }
 
     @media(max-width:675px){
         width: auto;
@@ -180,7 +179,7 @@ const Bio = styled(Row)`
 
     font-size: 1.25rem;
 
-    padding-right: 0.5rem;
+    // padding-right: 0.5rem;
 
     // @media(max-width:450px){
     //     text-align: center;
@@ -250,6 +249,8 @@ const ListTileContentBottom: TypeStyledComponent<"p", {}> = styled.p`
 
     font-size: 1.75rem;
 
+    // overflow-wrap: break-word;
+
     font-weight: bold;
 
     @media(max-width:1024px){
@@ -258,26 +259,30 @@ const ListTileContentBottom: TypeStyledComponent<"p", {}> = styled.p`
 
 `;
 
+
 const LocationInfoContainer = styled(Row)`
 
-    @media(max-width:1024px){
+    justify-content: space-between;
 
-        justify-content: space-between;
+    display: grid;
 
-        display: grid;
+    grid-template-columns: auto;
 
-        grid-template-columns: auto;
-
-        grid-row-gap: 1.75rem;
-    }
+    grid-row-gap: 1.75rem;
 
     @media(max-width:675px){
         display: none;
     }
 
+    overflow: scroll;
+
     ${ListTile} {
 
         gap: 0.75rem;
+
+        @media(max-width:1024px){
+          
+        }
         
     }
 
@@ -290,6 +295,8 @@ const VerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
     //TODO: Change to grey or some form of grey
     background: grey;
+
+    display: none;
 
     padding: 0rem 0.03125rem;
     
@@ -382,7 +389,7 @@ const ImageDescriptionContainer: TypeStyledComponent<"div", {}> = styled.div`
 
     display: flex;
 
-    gap: 2rem;
+    gap: 1.5rem;
 
     // @media(max-width:450px){
     //     flex-direction: column;
