@@ -72,14 +72,18 @@ const TextIcon: TypeStyledComponent<"button", {}> = styled.button`
 `;
 
 const ProfileImage: TypeStyledComponent<"img", {}> = styled.img`
+    width: 24rem;
 
-    max-width: 100%
+    @media(max-width:850px){
+        width: 18rem;
+    }
 
+    @media(max-width:450px){
+        width: 100%;
+    }
 `;
 
 const NameImageContainer = styled(Row)`
-
-    position: relative;
 
     @media(max-width:450px){
         width: auto;
