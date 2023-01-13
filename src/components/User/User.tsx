@@ -1,4 +1,4 @@
-import React, {FunctionComponent, MouseEventHandler} from "react";
+import React, {FunctionComponent, MouseEventHandler, useEffect, useRef, useState, useCallback} from "react";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
@@ -6,8 +6,6 @@ import useUser from "../custom_hooks/useUser";
 import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
 
 // TODO: Fix Static Location Data!!
-
-
 // TODO: Fix the footer not completely disappearing
 // TODO: Make navbar and footer disapear on user scroll down??
 // TODO: Fix alignment of middle section icons when the display is changed to grid
@@ -15,13 +13,39 @@ import {MainContainer, TextIcon, ProfileImage, NameImageContainer,UserName, User
 // TODO: Look for other UI errors and clean code errors
 // TODO: Change <a> redirect to a new tab
 
-const User: FunctionComponent = (props:{}): JSX.Element => {
+interface Props{
+    setScrolling: Function
+};
+
+
+const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
     
     const { state } = useLocation();
 
     const [user, setUser] = useUser(state);
 
     const [repos, setRepos] = useRepos(state);
+
+    const ref = useRef();
+
+    // TODO: Maybe remove event listener for scrolling | Causing app to rerender and act jittery in its current form
+    // The scroll listener
+    const handleScroll = useCallback(() => {
+      console.log("scrolling")
+    }, []);
+
+    // Attach the scroll listener to the div
+    useEffect(() => {
+
+      const div: Document = ref.current as unknown as Document;
+
+      console.log("From useEffect",div);
+
+      props.setScrolling(true);
+      
+    //   div.addEventListener("scroll", handleScroll);
+
+    }, []);
 
     console.log("User: ",user);
     console.log("REPOS: ",repos);
@@ -32,7 +56,7 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
         return <li key ={repo["id"]}>
             <ListTileRepoItem>
 
-                <IconListTileRepo href={repo["html_url"]}>
+                <IconListTileRepo href={repo["html_url"]} target="_blank">
 
                     <IconLink/>
                     <RepoTitle>
@@ -74,11 +98,11 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
 
     // const handleToGithub: MouseEventHandler = () => {navigate("https://google.com")};
 
-    console.log("From User Page: ",user, state, repos)
+    console.log("From User Page: ",user, state, repos);
     
 
     return (
-            <MainContainer>
+            <MainContainer ref={ref}>
                 {/* Parse out into its own div and margin auto? */}
                 <MainInnerContainer>
                     {/* <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon> */}
@@ -110,7 +134,7 @@ const User: FunctionComponent = (props:{}): JSX.Element => {
                                 {user["bio"]}
                             </Bio>
 
-                            <ProfileUrlButton href={user["html_url"]}>
+                            <ProfileUrlButton href={user["html_url"]} target="_blank">
                                 VISIT GITHUB PROFILE
                             </ProfileUrlButton>
 
