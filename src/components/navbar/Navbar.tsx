@@ -21,13 +21,7 @@ const Navbar: FunctionComponent<{setFooter: Function}> = (props:{setFooter: Func
                     <HamburgerMenuContainer>
                         <HamburgerMenu/>
                         <StyledDropdown>
-                            <Home onClick={
-                            () => {
-                                
-                                navigate("/")
-                            }
-                        
-                        } setFooter={props.setFooter}/>
+                            <Home onClick={toHome} setFooter={props.setFooter}/>
                             <About onClick={
                             () => {
                                 
