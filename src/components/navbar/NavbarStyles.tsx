@@ -17,9 +17,11 @@ font-size: ${NavbarTheme.fsXL};
 
 const Navbar: TypeStyledComponent<"nav", {}> = styled.nav`
 
-justify-content: space-between;
-
 display: flex;
+
+padding: 0rem 3rem;
+
+justify-content: space-between;
 
 position: absolute;
 
@@ -40,6 +42,10 @@ ${Link} {
     &: hover {
         color: #ff9e00;
     }
+}
+
+@media(max-width:675px){
+padding: 0rem;
 }
 
 `;
