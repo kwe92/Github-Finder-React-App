@@ -12,19 +12,17 @@ import User from "./components/User/User";
 const App = (props:{}) => 
            {
 
-            const [isScrolling, setIsScrolling] = useState(false);
-
-            // console.log("Scroll Y",document.scrollingElement?.scrollHeight);
+            const [footer, setFooter] = useState(false);
 
             return (
                 <Router>
-                    <Navbar setFooter = {setIsScrolling}/>
-                    <Wrapper isScrolling = {isScrolling}>
+                    <Navbar setFooter = {setFooter}/>
+                    <Wrapper setFooter = {footer}>
                     <Container>
                         <Routes>
-                            <Route path="/" element={<Home/>}/>
+                            <Route path="/" element={<Home setFooter={setFooter}/>}/>
                             <Route path="/about" element={<About/>}/>
-                            <Route path="/user/:login" element={<User setScrolling = {setIsScrolling}/>}/>
+                            <Route path="/user/:login" element={<User setFooter = {setFooter}/>}/>
                             <Route path="/*" element={<Notfound/>}/>
                         </Routes>
                         </Container>
