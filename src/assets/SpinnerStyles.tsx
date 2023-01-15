@@ -1,15 +1,14 @@
 import styled, { StyledComponent, StyledInterface } from "styled-components";
 import { TypeStyledComponent } from "../types/styled_component/types";
 import rotate  from "./Keyframes";
+import { Row } from "../components/global/BaseFlex";
 
 const SpinnerImage: TypeStyledComponent<"img",{}> = styled.img`
 max-width: 100%;
 `
 
-const SpinnerContainer: TypeStyledComponent<"div",{}> = styled.div`
+const SpinnerContainer = styled(Row)`
     
-display: flex;
-
 // background: lightblue;
 
 width: 15rem;
