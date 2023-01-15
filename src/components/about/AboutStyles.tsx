@@ -1,5 +1,6 @@
 import styled, { StyledComponent } from "styled-components";
 import { TypeStyledComponent } from "../../types/styled_component/types";
+import { Row, Column } from "../global/BaseFlex";
 
 
 interface Props {
@@ -30,11 +31,7 @@ const ContentContainer: TypeStyledComponent<"p", Props> = styled.p<Props>`
 
 `;
 
-const ContainerWrapper: TypeStyledComponent<"div",{}> = styled.div`
-
-    display: flex;
-
-    flex-direction: row;
+const ContainerWrapper = styled(Row)`
 
     gap: 0.25rem;
 
@@ -42,11 +39,7 @@ const ContainerWrapper: TypeStyledComponent<"div",{}> = styled.div`
 
 `;
 
-const AboutContentWrapper: TypeStyledComponent<"div",{}> = styled.div`
-
-    display: flex;
-
-    flex-direction: column;
+const AboutContentWrapper= styled(Column)`
 
     gap: 1rem;
 
