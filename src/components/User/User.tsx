@@ -4,7 +4,7 @@ import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
 import {MainContainer, TextIcon, ProfileImage, ButtonImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
-
+// TODO: Adding margin-left to description section between the profile and the bio
 // TODO: Move Website up somewhere else, it takes up alot of space for some users
 // TODO: Fix Static Location Data!!
 // TODO: Fix the footer not completely disappearing
@@ -126,7 +126,7 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
                         <DescriptionContainer>
 
                             <NameContentContainer>
-                                <UserName>{user["name"]}</UserName>
+                                <UserName>{user["name"] ? user["name"] : "IhaveNoUserName"}</UserName>
                                 <UserLogin>{user["login"]}</UserLogin>
 
                                 <IconBadge primary={"#00b0ff"} secondary={"rgba(0, 176, 255, 0.2)"}>{user["type"]}</IconBadge>
@@ -138,7 +138,7 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
                             </NameContentContainer>
 
                             <Bio>
-                                {user["bio"]}
+                                {user["bio"] ? user["bio"] : "Nothing to write home about."}
                             </Bio>
 
                             {/* <ProfileUrlButton href={user["html_url"]} target="_blank">

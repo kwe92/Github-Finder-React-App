@@ -6,25 +6,12 @@ import { BsFillInboxesFill, BsFillEyeFill, BsInfoLg } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { BiGitRepoForked, BiLink } from "react-icons/bi";
 import { IconType } from "react-icons";
+import { Row, Column} from "../global/BaseFlex";
 
 interface IconBadgeProps {
     primary: string;
     secondary: string;
 }
-
-const Row: TypeStyledComponent<"div", {}> = styled.div`
-
-    display: flex;
-
-`;
-
-const Column: TypeStyledComponent<"div", {}> = styled.div`
-
-    display: flex;
-
-    flex-direction: column;
-
-`;
 
 const MainContainer = styled(Column)`
 
@@ -82,7 +69,10 @@ const TextIcon: TypeStyledComponent<"button", {}> = styled.button`
 `;
 
 const ProfileImage: TypeStyledComponent<"img", {}> = styled.img`
+    
     width: 24rem;
+
+    border-radius: 0.5rem;
 
     @media(max-width:850px){
 
@@ -150,9 +140,9 @@ const UserLogin: TypeStyledComponent<"p", {}> = styled.p`
 
 const DescriptionContainer = styled(Column)`
 
-    // background: green;
-
     width: 75%;
+
+    margin-left: 0.1875rem;
     
     justify-content: space-between;
 
@@ -168,6 +158,7 @@ const DescriptionContainer = styled(Column)`
 
     @media(max-width:675px){
         width: auto;
+        margin: 0;
         }
 `;
 
@@ -204,9 +195,9 @@ const ProfileUrlButton: TypeStyledComponent<"a", {}> = styled.a`
 
     padding: 1rem 3rem;
 
-    border: 2px solid white;
+    border: 0.125rem solid white;
 
-    border-radius: 10px;
+    border-radius: 0.625rem;
 
     // @media(max-width:450px){
     //     align-self: center;
@@ -228,9 +219,7 @@ const ListTile: TypeStyledComponent<any, {}> = styled(Column)`
     color: white;
 
     gap: 0.75rem;
-
  
-
 `;
 
 const ListTileContentTop: TypeStyledComponent<"p", {}> = styled.p`
@@ -249,12 +238,11 @@ const ListTileContentBottom: TypeStyledComponent<"p", {}> = styled.p`
 
     font-size: 1.75rem;
 
-    // overflow-wrap: break-word;
-
     font-weight: bold;
 
     @media(max-width:1024px){
         font-size: 1.25rem;
+        
     }
 
 `;
@@ -280,14 +268,19 @@ const LocationInfoContainer = styled(Row)`
 
         gap: 0.75rem;
 
-        @media(max-width:1024px){
-          
+        @media(max-width:850px){
+          font-size: 1.125rem;
         }
+    }
         
     }
 
     ${ListTileContentBottom}{
         font-size: 1.5rem;
+
+        @media(max-width:850px){
+            font-size: 1.125rem;
+          }
     }
 `;
 
@@ -362,21 +355,22 @@ const IconListTileContainer = styled(Row)`
 
     width: 100%;
 
+    // TODO: Add Neumorphic box-shadows and padding | make it responsive
+
+    // box-shadow: 1px 2px 3px #25262a;
+
     justify-content: space-between;
 
     @media(max-width:900px){
     gap: 2rem;
-
     }
     
     @media(max-width: 768px){
-
     width: auto;
 
     align-items: center;
 
     justify-content: space-between;
-
     }
 
     @media(max-width:300px){
@@ -457,6 +451,17 @@ const IconFork: TypeStyledComponent<IconType, {}> = styled(BiGitRepoForked)`
 
 const IconLink: TypeStyledComponent<IconType, {}> = styled(BiLink)`
 
+    font-size: 2.75rem;
+
+    @media(max-width:850px){
+        font-size: 2.375rem;
+    }
+
+    @media(max-width:600px){
+        font-size: 1.75rem;
+    }
+
+
 `;
 
 const IconListTileContainerWrapper = styled(Row)`
@@ -466,6 +471,10 @@ const IconListTileContainerWrapper = styled(Row)`
     align-items: center;
 
     justify-content: center;
+
+    // TODO: Turn the box shadow back on
+
+    // box-shadow: 2px 4px 6px #25262a;
 
     @media(max-width:1024px){
         gap: 0.5rem;
@@ -523,6 +532,8 @@ const ListTileRepoItem = styled(Column)`
 
     padding: 2.5rem;
 
+    border-radius: 0.5rem;
+
 
 `;
 
@@ -550,13 +561,19 @@ const BadgeRow = styled(Row)`
 
     font-size: 1.25rem;
 
+    @media(max-width:450px){
+        gap: 0.625rem;
+    }
+
 `;
 
 const IconBadge = styled(Row)<IconBadgeProps>`
 
-    gap: 0.5rem;
+    gap: 0.50rem;
 
-    padding: 0.125rem 0.25rem;
+    padding: 0.1875rem 0.75rem;
+
+    align-items: center;
 
     border-radius: 1rem;
 
@@ -564,11 +581,27 @@ const IconBadge = styled(Row)<IconBadgeProps>`
 
     background: ${props => props.secondary};
 
+    @media(max-width:850px){
+        font-size: 1.125rem;
+    }
+
+    @media(max-width:450px){
+        font-size: 0.75rem;
+    }
+
 `;
 
 const RepoTitle: TypeStyledComponent<"p",{}> = styled.p`
 
     font-size: 1.75rem;
+
+    @media(max-width:850px){
+        font-size: 1.325rem;
+    }
+
+    @media(max-width:450px){
+        font-size: 1.125rem;
+    }
 
 `;
 
@@ -583,8 +616,12 @@ const RepoHeader = styled(Row)`
     justify-content: center;
 
     @media(max-width:800px){
-    font-size: 2rem;
+    font-size: 1.875rem;
     }
+
+    @media(max-width:800px){
+        font-size: 1.625rem;
+        }
 
 `;
 
