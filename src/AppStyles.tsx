@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { TypeStyledComponent } from "./types/styled_component/types";
 import { Column } from "./components/global/BaseFlex";
 
-const AppContentWrapper: TypeStyledComponent< "div",{isScrolling: boolean}> = styled.div<{isScrolling: boolean}>`
+const AppContentWrapper: TypeStyledComponent< "div",{setFooter: boolean}> = styled.div<{setFooter: boolean}>`
 
     height: 100vh;
 
     //TODO: Continue working on disapearing footer
 
-    height: ${(props) => props.isScrolling ? "auto" : "100vh"};
+    height: ${(props) => props.setFooter ? "auto" : "100vh"};
 
     // height: 100vh;
 
