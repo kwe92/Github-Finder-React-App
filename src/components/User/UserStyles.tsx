@@ -7,6 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 import { BiGitRepoForked, BiLink } from "react-icons/bi";
 import { IconType } from "react-icons";
 import { Row, Column} from "../global/BaseFlex";
+import { tiltShake } from "../../keyframes/TiltShake";
 
 interface IconBadgeProps {
     primary: string;
@@ -349,15 +350,11 @@ const LogoIconVerticalLine: TypeStyledComponent<"div", {}> = styled.div`
 
 const IconListTileContainer = styled(Row)`
 
-    // background: orange;
-
     gap: 4rem;
 
     width: 100%;
 
-    // TODO: Add Neumorphic box-shadows and padding | make it responsive
-
-    // box-shadow: 1px 2px 3px #25262a;
+    align-items: center;
 
     justify-content: space-between;
 
@@ -472,9 +469,13 @@ const IconListTileContainerWrapper = styled(Row)`
 
     justify-content: center;
 
-    // TODO: Turn the box shadow back on
+    box-shadow: 0.1250rem 0.25rem 0.375rem #25262a;
 
-    // box-shadow: 2px 4px 6px #25262a;
+    // background: orange;
+
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+
+    border-radius: 0.5rem;
 
     @media(max-width:1024px){
         gap: 0.5rem;
@@ -499,6 +500,8 @@ const IconListTileContainerWrapper = styled(Row)`
     @media(max-width:450px){
 
     grid-template-columns: 45% 45%;
+
+    padding: 0.625rem 1.125rem 1.125rem 1.125rem;
 
     }
 
@@ -580,6 +583,8 @@ const IconBadge = styled(Row)<IconBadgeProps>`
     color: ${props => props.primary};
 
     background: ${props => props.secondary};
+
+    animation: ${tiltShake} 2s linear infinite;
 
     @media(max-width:850px){
         font-size: 1.125rem;
