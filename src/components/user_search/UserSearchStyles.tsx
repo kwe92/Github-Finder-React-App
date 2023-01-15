@@ -1,5 +1,6 @@
 import styled, { StyledComponent } from "styled-components";
 import { TypeStyledComponent } from "../../types/styled_component/types";
+import { Row, Column } from "../global/BaseFlex";
 
 interface ClearButtonProps {
     type?: "button";
@@ -10,16 +11,12 @@ interface InputButtonProps {
 }
 
 
-const FlexWrapper: TypeStyledComponent<"div",{}> = 
-    styled.div`
+const FlexWrapper= 
+    styled(Column)`
 
     // background: red;
 
     padding-top: 2.5rem;
-
-    display: flex;
-
-    flex-direction: column;
 
     margin: auto;
 
