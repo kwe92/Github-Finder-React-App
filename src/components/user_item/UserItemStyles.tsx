@@ -2,10 +2,9 @@ import styled, { StyledComponent } from "styled-components";
 import {Link} from "react-router-dom";
 import { LinkProps } from "react-router-dom";
 import { TypeStyledComponent } from "../../types/styled_component/types";
+import { Row, Column } from "../global/BaseFlex";
 
-export const ListTile: TypeStyledComponent<"div",{}> = styled.div`
-
-    display: flex;
+export const ListTile = styled(Row)`
 
     gap: 1rem;
 
@@ -57,9 +56,7 @@ export const UserAvatarIcon: TypeStyledComponent<"img",{}> = styled.img`
 
 `;
 
-export const UserImageContainer: TypeStyledComponent<"div",{}> = styled.div`
-
-    display: flex;
+export const UserImageContainer = styled(Row)`
 
     border-radius: 50%;
 
@@ -69,11 +66,7 @@ export const UserImageContainer: TypeStyledComponent<"div",{}> = styled.div`
 
 `;
 
-export const ContentContainer: TypeStyledComponent<"div",{}> = styled.div`
-
-    display: flex;
-
-    flex-direction: column;
+export const ContentContainer= styled(Column)`
 
     gap: 0.5rem;
 
