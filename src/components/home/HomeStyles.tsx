@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { TypeStyledComponent } from "../../types/styled_component/types";
+
  const ErrorMessage: TypeStyledComponent<"div",{}> = styled.div`
 
  color: orange;
