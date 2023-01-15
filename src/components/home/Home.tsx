@@ -1,15 +1,23 @@
 import { stat } from "fs";
-import React, { useState, FunctionComponent } from "react";
+import React, { useState, FunctionComponent, useEffect } from "react";
 import { SetState } from "../../types/state/stateTypes";
 import { UserResults } from "../user_results/UserResults";
 import UserSearch from "../user_search/UserSearch";
 import { ErrorMessage } from "./HomeStyles";
 
-const Home: FunctionComponent  = (props:{}): JSX.Element => 
+interface Props{
+    setFooter: Function;
+}
+
+const Home: FunctionComponent<Props>  = (props:Props): JSX.Element => 
             {
                 const [userInput, setUserInput]: [string, SetState<string>] = useState("");
 
                 const [error, setError]: [boolean, SetState<boolean>] = useState(false);
+
+                useEffect(() => {
+                    props.setFooter(false);
+                });
 
                 const setState = (state: string, error: boolean) => 
                     {
