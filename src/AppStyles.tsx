@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { TypeStyledComponent } from "./types/styled_component/types";
+import { Column } from "./components/global/BaseFlex";
 
 const AppContentWrapper: TypeStyledComponent< "div",{isScrolling: boolean}> = styled.div<{isScrolling: boolean}>`
 
@@ -19,13 +20,9 @@ const AppContentWrapper: TypeStyledComponent< "div",{isScrolling: boolean}> = st
 
 `;
 
-export const Container: TypeStyledComponent<"div",{}> = styled.div`
+export const Container = styled(Column)`
 
 padding-top: 6rem;
-
-display: flex;
-
-flex-direction: column;
 
 gap: 1rem;
 
