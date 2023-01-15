@@ -4,6 +4,7 @@ import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
 import {MainContainer, TextIcon, ProfileImage, ButtonImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
+
 // TODO: Adding margin-left to description section between the profile and the bio
 // TODO: Move Website up somewhere else, it takes up alot of space for some users
 // TODO: Fix Static Location Data!!
@@ -13,9 +14,10 @@ import {MainContainer, TextIcon, ProfileImage, ButtonImageContainer,UserName, Us
 // TODO: Finish styling the badges for the user page
 // TODO: Look for other UI errors and clean code errors
 // TODO: Change <a> redirect to a new tab
+// TODO: Add user Contributions per repo of top repos | EXAMPLE: https://api.github.com/repos/kwe92/VueMix-React-App/contributors?anon=1 
 
 interface Props{
-    setScrolling: Function
+    setFooter: Function
 };
 
 
@@ -42,7 +44,7 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
 
       console.log("From useEffect",div);
 
-      props.setScrolling(true);
+      props.setFooter(true);
       
     //   div.addEventListener("scroll", handleScroll);
 
