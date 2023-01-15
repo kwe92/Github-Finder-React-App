@@ -14,6 +14,10 @@ const Navbar: FunctionComponent<{setFooter: Function}> = (props:{setFooter: Func
         const toHome = () => {
             navigate("/");
         };
+
+        const toAbout = ()=>{
+            navigate("/about")
+        };
         return (
                 <StyledNavbar>
                     <IconLogo onClick={toHome} setFooter={props.setFooter}/>
@@ -22,13 +26,7 @@ const Navbar: FunctionComponent<{setFooter: Function}> = (props:{setFooter: Func
                         <HamburgerMenu/>
                         <StyledDropdown>
                             <Home onClick={toHome} setFooter={props.setFooter}/>
-                            <About onClick={
-                            () => {
-                                
-                                navigate("/about")
-                            }
-                        
-                        } setFooter={props.setFooter}/>
+                            <About onClick={toAbout} setFooter={props.setFooter}/>
                         </StyledDropdown>
                     </HamburgerMenuContainer>
                 </StyledNavbar>

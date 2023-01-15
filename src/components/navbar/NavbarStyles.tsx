@@ -2,6 +2,7 @@ import styled, { Interpolation, StyledComponent, StyledComponentBase } from "sty
 import {FaGithub} from "react-icons/fa";
 import { Link as RouterLink} from "react-router-dom";
 import { TypeStyledComponent } from "../../types/styled_component/types";
+import { Row } from "../global/BaseFlex";
 
 const NavbarTheme = {
     fc: "white", //font-color
@@ -56,7 +57,7 @@ color: ${NavbarTheme.fc};
 
 font-size: ${NavbarTheme.fsXL};
 
-@media (max-width: 425px){
+@media (max-width: 675px){
 
     display: none;
 
@@ -114,7 +115,11 @@ display: none;
 }
 
 @media(max-width:675px){
-  padding-right: 1.5rem;
+  padding-right: 2.125rem;
+}
+
+@media(max-width:475px){
+  padding-right: 1.625rem;
 }
 
 `;
@@ -130,7 +135,11 @@ const LogoIconContentWrapper: TypeStyledComponent<"button",{}> = styled.button`
   border: none;
 
   @media(max-width:675px){
-    padding-left: 1.5rem;
+    padding-left: 2.25rem;
+  }
+
+  @media(max-width:475px){
+    padding-left: 1.75rem;
   }
 
 `;
