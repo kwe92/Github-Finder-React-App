@@ -19,18 +19,30 @@ export const UserResults: FunctionComponent<Props> = (props:Props): JSX.Element 
     const initState: EffectCallback = () => 
         setIsLoading(false);
 
-    useEffect(initState,[]);
+    // useEffect(initState,[]);
+
+    useEffect(() => {
+        initState();
+
+    },[users]);
+    
 
     const userList: JSX.Element[] =
         users.map((user: any, index: Key) => <UserItem key={user["id"]} user={user}/>);
 
         
-        return (
-                isLoading || users.length === 0 ?
+
+                // if(users.length === 0){
+                //     return <div style={{color:"blue"}}>user not found</div>
+                // }
+
+                //////////
+
+                return isLoading || users.length === 0 ?
                 <Spinner/>
                 : 
                 <GridWrapper isLoading = {isLoading}>
                     {userList}
                 </GridWrapper>
-            );
+
 };
