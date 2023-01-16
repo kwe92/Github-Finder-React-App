@@ -5,6 +5,9 @@ interface Props  {
     isLoading: boolean;
 }
 
+
+// TODO: Add styles to user not found
+
 export const GridWrapper: TypeStyledComponent<"div",Props> = styled.div<Props>`
 
 justify-content: ${props => props.isLoading && "center"};
@@ -17,7 +20,7 @@ grid-template-columns: auto auto auto;
 
 overflow: scroll;
 
-@media(max-width:768px){
+@media(max-width:850px){
 
     grid-template-columns: auto auto;
 
