@@ -31,23 +31,10 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
 
     const ref = useRef();
 
-    // TODO: Maybe remove event listener for scrolling | Causing app to rerender and act jittery in its current form
-    // The scroll listener
-    const handleScroll = useCallback(() => {
-      console.log("scrolling")
-    }, []);
-
     // Attach the scroll listener to the div
     useEffect(() => {
-
-      const div: Document = ref.current as unknown as Document;
-
-      console.log("From useEffect",div);
-
       props.setFooter(true);
       
-    //   div.addEventListener("scroll", handleScroll);
-
     }, []);
 
     console.log("User: ",user);
@@ -99,13 +86,11 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
 
     const handleBackHome: MouseEventHandler = () => navigate("/");
 
-    // const handleToGithub: MouseEventHandler = () => {navigate("https://google.com")};
-
     console.log("From User Page: ",user, state, repos);
     
 
     return (
-            <MainContainer ref={ref}>
+            <MainContainer>
                 {/* Parse out into its own div and margin auto? */}
                 <MainInnerContainer>
                     {/* <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon> */}
