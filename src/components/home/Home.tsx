@@ -29,15 +29,13 @@ const Home: FunctionComponent<Props>  = (props:Props): JSX.Element =>
 
             return (
                 <>
-            <div style={{display:"flex", flexDirection: "column", alignItems: "center", paddingBottom: "1rem"
+            <div style={{display:"flex", flexDirection: "column", alignItems: "center"
         }}>
             {error && <ErrorMessage>Please enter a name</ErrorMessage>}
             <UserSearch setSearch = {setState}/>
             </div>
             {userInput.trim() && <UserResults searchResults={userInput}/>}
                 </>
-
-            
             );
             };
 
