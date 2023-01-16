@@ -2,6 +2,7 @@ import React,{FunctionComponent} from "react";
 import {FooterContentWrapper as FooterWraper, CopyrightContent, HashTag, Footer as StyledFooter, CopyrightIcon} from "./FooterStyles";
 
 
+// TODO: Change the display of the footer based on viewport height for phone
 
 const Footer: FunctionComponent = ({}): JSX.Element =>
         <StyledFooter>
