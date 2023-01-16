@@ -41,7 +41,7 @@ const ContainerWrapper = styled(Row)`
 
 const AboutContentWrapper= styled(Column)`
 
-    gap: 1rem;
+    gap: 1.75rem;
 
     padding-left: 2.5rem;
 
