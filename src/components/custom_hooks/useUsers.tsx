@@ -6,7 +6,7 @@ import { SetState } from "../../types/state/stateTypes";
 const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
     const [user, setUsers]: [[], SetState<[]>] = useState([]);
 
-    console.log(serchResults);
+    // console.log(serchResults);
 
     const fetchUsers = async () => {
         const data = await axios.get(
@@ -16,7 +16,14 @@ const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
             Authorization: GITHUB_API_TOKEN
         }});
 
-        console.log(data);
+        // console.log("Date From useUsers",data.data.items);
+
+        console.log("Date From useUsers",data);
+
+        data.request.ontimeout(() => {
+            console.log("TIMEOUT")
+        });
+
 
         const result = data.data.items;
 
