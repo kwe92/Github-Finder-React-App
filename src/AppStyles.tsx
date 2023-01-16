@@ -28,11 +28,15 @@ gap: 1rem;
 
 height: 85%;
 
-padding-bottom: 1rem;
+padding-bottom: 3rem;
 
 align-items: center;
 
 justify-content: center;
+
+@media(max-width:450px){
+    padding-bottom: 2rem;
+}
 
 `
 

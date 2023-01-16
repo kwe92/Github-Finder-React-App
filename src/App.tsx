@@ -9,11 +9,30 @@ import Home  from "./components/home/Home";
 import User from "./components/User/User";
 
 //TODO: Change the isScrolling Variable | implemented differently | displays on user navigation
+
+
 const App = (props:{}) => 
            {
 
+            const [deviceWidth, setDeviceWidth] = useState([]);
             const [footer, setFooter] = useState(false);
+            const listener = window.addEventListener;
 
+            const handleDeviceOrientation = () => {
+                const ori = window.screen.orientation.type;
+                const screenHeight = window.screen.height;
+
+                console.log("VIEWPORT orientation: ", ori, screenHeight);
+            };
+
+            window.addEventListener('deviceorientation', (event) => {
+                console.log("EVENT: ",event);
+                const ori = window.screen.orientation.type;
+                const screenHeight = window.screen.height;
+
+                console.log("VIEWPORT orientation: ", ori, screenHeight);
+            });
+            
             return (
                 <Router>
                     <Navbar setFooter = {setFooter}/>
