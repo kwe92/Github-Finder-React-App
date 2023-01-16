@@ -45,6 +45,10 @@ ${Link} {
     }
 }
 
+@media(min-width:1250px){
+  padding: 0rem 4.25rem;
+}
+
 @media(max-width:675px){
 padding: 0rem;
 }
@@ -149,6 +153,7 @@ const StyledDropdown: TypeStyledComponent<"ul", {}> = styled.ul`
 background: #25262a;
 
 box-shadow: 0px 1px 2px grey;
+
 padding: 1em 0;
 
 position: absolute; // With respect to parent
