@@ -600,6 +600,9 @@ const RepoTitle: TypeStyledComponent<"p",{}> = styled.p`
 
     font-size: 1.75rem;
 
+    overflow-wrap: break-word;
+    width: 100%;
+
     @media(max-width:850px){
         font-size: 1.325rem;
     }
@@ -690,5 +693,4 @@ export {
         , IconLink
         , RepoTitle
         , RepoHeader
-        , 
      }
