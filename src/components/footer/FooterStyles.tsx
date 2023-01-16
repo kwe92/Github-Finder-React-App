@@ -38,6 +38,8 @@ const CopyrightContent: TypeStyledComponent<"p", {}> = styled.p`
 
 const Footer = styled(Column)`
 
+    // display: none;
+
     padding-bottom: 1rem;
 
     align-items: center;
@@ -75,6 +77,10 @@ const Footer = styled(Column)`
     // @media (max-width:450px){
     //     display: none;
     // }
+
+    @media screen and (orientation: landscape) and (max-height:450px){
+        display: none;
+    }
 
 `;
 
