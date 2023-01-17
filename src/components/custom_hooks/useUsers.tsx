@@ -4,13 +4,18 @@ import axios from "axios";
 import { SetState } from "../../types/state/stateTypes";
 
 const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
-    const [user, setUsers]: [[], SetState<[]>] = useState([]);
+    const [users, setUsers]: [[], SetState<[]>] = useState([]);
+    
+    const instance = axios.create({
+        baseURL: `${GITHUB_API_URL}`,
+        timeout: 3000,
+      });
 
     // console.log(serchResults);
 
     const fetchUsers = async () => {
-        const data = await axios.get(
-             `${GITHUB_API_URL}/search/users?q=${serchResults}`    
+        const data = await instance.get(
+             `search/users?q=${serchResults}`    
         ,
         { headers: {
             Authorization: GITHUB_API_TOKEN
@@ -33,7 +38,7 @@ const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
 
     useEffect(() => {fetchUsers()},[serchResults]);
 
-    return [user, setUsers];
+    return [users, setUsers];
 
 };
 

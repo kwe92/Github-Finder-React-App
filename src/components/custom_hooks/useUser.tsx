@@ -6,6 +6,12 @@ import { SetState } from "../../types/state/stateTypes";
 const useUser: Function = (selectedUser: string): [object[], SetState<[]>] => {
     const [user, setUser]: [[], SetState<[]>] = useState([]);
 
+    const instance = axios.create({
+        baseURL: '',
+        timeout: 3000,
+        headers: {'X-Custom-Header': ''}
+      });
+
     console.log(user);
 
     const fetchUser = async () => {
