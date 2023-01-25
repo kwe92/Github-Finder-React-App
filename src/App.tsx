@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Footer from "./components/footer/Footer";
@@ -14,16 +14,16 @@ import User from "./components/User/User";
 const App = (props:{}) => 
            {
 
-            const [deviceWidth, setDeviceWidth] = useState([]);
+            // const [deviceWidth, setDeviceWidth] = useState([]);
             const [footer, setFooter] = useState(false);
-            const listener = window.addEventListener;
+            // const listener = window.addEventListener;
 
-            const handleDeviceOrientation = () => {
-                const ori = window.screen.orientation.type;
-                const screenHeight = window.screen.height;
+            // const handleDeviceOrientation = () => {
+            //     const ori = window.screen.orientation.type;
+            //     const screenHeight = window.screen.height;
 
-                console.log("VIEWPORT orientation: ", ori, screenHeight);
-            };
+            //     console.log("VIEWPORT orientation: ", ori, screenHeight);
+            // };
 
             window.addEventListener('deviceorientation', (event) => {
                 console.log("EVENT: ",event);

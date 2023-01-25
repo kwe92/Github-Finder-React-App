@@ -1,9 +1,8 @@
-import React, {FunctionComponent, MouseEventHandler, useEffect, useRef, useState, useCallback} from "react";
+import React, {FunctionComponent, MouseEventHandler, useEffect} from "react";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
-import { SetState } from "../../types/state/stateTypes";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
-import {MainContainer, TextIcon, ProfileImage, ButtonImageContainer,UserName, UserNameContainer, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
+import {MainContainer, ProfileImage, ButtonImageContainer,UserName, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
 
 // TODO: Adding margin-left to description section between the profile and the bio
 // TODO: Move Website up somewhere else, it takes up alot of space for some users
@@ -25,11 +24,11 @@ const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
     
     const { state } = useLocation();
 
-    const [user, setUser] = useUser(state);
+    const [user] = useUser(state);
 
-    const [repos, setRepos] = useRepos(state);
+    console.log("User Data: ", user);
 
-    const ref = useRef();
+    const [repos] = useRepos(state);
 
     // Attach the scroll listener to the div
     useEffect(() => {

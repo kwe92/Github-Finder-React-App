@@ -1,5 +1,4 @@
 import React,{ useEffect, useState } from "react";
-import {GITHUB_API_URL, GITHUB_API_TOKEN} from "../../private/ApiKey"
 import axios from "axios";
 import { SetState } from "../../types/state/stateTypes";
 
@@ -7,7 +6,7 @@ const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
     const [users, setUsers]: [[], SetState<[]>] = useState([]);
     
     const instance = axios.create({
-        baseURL: `${GITHUB_API_URL}`,
+        baseURL: `${process.env.REACT_APP_GITHUB_API_URL}`,
         timeout: 3000,
       });
 
@@ -18,7 +17,7 @@ const useUsers: Function = (serchResults: string): [object[], SetState<[]>] => {
              `search/users?q=${serchResults}`    
         ,
         { headers: {
-            Authorization: GITHUB_API_TOKEN
+            Authorization: process.env.REACT_APP_GITHUB_API_TOKEN
         }});
 
         // console.log("Date From useUsers",data.data.items);

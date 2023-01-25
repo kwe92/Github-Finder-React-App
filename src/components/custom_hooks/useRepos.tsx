@@ -1,5 +1,4 @@
 import React,{ useEffect, useState } from "react";
-import {GITHUB_API_URL, GITHUB_API_TOKEN} from "../../private/ApiKey"
 import axios from "axios";
 import { SetState } from "../../types/state/stateTypes";
 
@@ -15,10 +14,10 @@ const useRepos: Function = (selectedUser: string): [object[], SetState<[]>] => {
 
         
         const data = await axios.get(
-             `${GITHUB_API_URL}/users/${selectedUser}/repos?${params}`    
+             `${process.env.REACT_APP_GITHUB_API_URL}/users/${selectedUser}/repos?${params}`    
         ,
         { headers: {
-            Authorization: GITHUB_API_TOKEN
+            Authorization: process.env.REACT_APP_GITHUB_API_TOKEN
         }});
 
         // console.log("Repos: ", data)

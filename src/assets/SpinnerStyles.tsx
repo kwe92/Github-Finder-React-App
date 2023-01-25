@@ -1,4 +1,4 @@
-import styled, { StyledComponent, StyledInterface } from "styled-components";
+import styled from "styled-components";
 import { TypeStyledComponent } from "../types/styled_component/types";
 import rotate  from "./Keyframes";
 import { Row } from "../components/global/BaseFlex";
