@@ -1,10 +1,16 @@
-import {createGlobalStyle,GlobalStyleComponent,DefaultTheme} from "styled-components";
-import {ReactNode,ReactElement} from "react"
+import {
+  createGlobalStyle,
+  GlobalStyleComponent,
+  DefaultTheme,
+} from "styled-components";
+import { ReactNode, ReactElement } from "react";
 
 // Styled COmponent Helper Funtion to create a base global style.
 
-export const AppGlobalTheme: GlobalStyleComponent<{}, DefaultTheme> = 
-    createGlobalStyle`
+export const AppGlobalTheme: GlobalStyleComponent<
+  {},
+  DefaultTheme
+> = createGlobalStyle`
 
     * {
 

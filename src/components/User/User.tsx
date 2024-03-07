@@ -1,8 +1,44 @@
-import React, {FunctionComponent, MouseEventHandler, useEffect} from "react";
+import React, { FunctionComponent, MouseEventHandler, useEffect } from "react";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import useRepos from "../custom_hooks/useRepos";
 import useUser from "../custom_hooks/useUser";
-import {MainContainer, ProfileImage, ButtonImageContainer,UserName, UserLogin, DescriptionContainer, NameContentContainer, Bio, ProfileUrlButton, LocationInfoContainer, ListTile, ListTileContentTop, ListTileContentBottom, VerticalLine, IconListTileContainer, IconUsers, ImageDescriptionContainer, IconListTileContainerWrapper, MainInnerContainer, LogoIconVerticalLine, ListTileRepoContaner, ListTileRepoItem, BadgeRow, IconBadge, IconUserFriends, IconBox, IconInBox, IconEye, IconStar, IconInfo, IconFork, IconListTileRepo, IconLink, RepoTitle, RepoHeader} from "./UserStyles";
+import {
+  MainContainer,
+  ProfileImage,
+  ButtonImageContainer,
+  UserName,
+  UserLogin,
+  DescriptionContainer,
+  NameContentContainer,
+  Bio,
+  ProfileUrlButton,
+  LocationInfoContainer,
+  ListTile,
+  ListTileContentTop,
+  ListTileContentBottom,
+  VerticalLine,
+  IconListTileContainer,
+  IconUsers,
+  ImageDescriptionContainer,
+  IconListTileContainerWrapper,
+  MainInnerContainer,
+  LogoIconVerticalLine,
+  ListTileRepoContaner,
+  ListTileRepoItem,
+  BadgeRow,
+  IconBadge,
+  IconUserFriends,
+  IconBox,
+  IconInBox,
+  IconEye,
+  IconStar,
+  IconInfo,
+  IconFork,
+  IconListTileRepo,
+  IconLink,
+  RepoTitle,
+  RepoHeader,
+} from "./UserStyles";
 
 // TODO: Adding margin-left to description section between the profile and the bio
 // TODO: Move Website up somewhere else, it takes up alot of space for some users
@@ -13,216 +49,212 @@ import {MainContainer, ProfileImage, ButtonImageContainer,UserName, UserLogin, D
 // TODO: Finish styling the badges for the user page
 // TODO: Look for other UI errors and clean code errors
 // TODO: Change <a> redirect to a new tab
-// TODO: Add user Contributions per repo of top repos | EXAMPLE: https://api.github.com/repos/kwe92/VueMix-React-App/contributors?anon=1 
+// TODO: Add user Contributions per repo of top repos | EXAMPLE: https://api.github.com/repos/kwe92/VueMix-React-App/contributors?anon=1
 
-interface Props{
-    setFooter: Function
-};
+interface Props {
+  setFooter: Function;
+}
 
+const User: FunctionComponent<Props> = (props: Props): JSX.Element => {
+  const { state } = useLocation();
 
-const User: FunctionComponent<Props> = (props:Props): JSX.Element => {
-    
-    const { state } = useLocation();
+  const [user] = useUser(state);
 
-    const [user] = useUser(state);
+  console.log("User Data: ", user);
 
-    console.log("User Data: ", user);
+  const [repos] = useRepos(state);
 
-    const [repos] = useRepos(state);
+  // Attach the scroll listener to the div
+  useEffect(() => {
+    props.setFooter(true);
+  }, []);
 
-    // Attach the scroll listener to the div
-    useEffect(() => {
-      props.setFooter(true);
-      
-    }, []);
+  console.log("User: ", user);
+  console.log("REPOS: ", repos);
+  console.log("Watchers_count: ", repos["watchers_count"]);
 
-    console.log("User: ",user);
-    console.log("REPOS: ",repos);
-    console.log("Watchers_count: ",repos["watchers_count"]);
-
-
-    const repoListItems = repos.map((repo: any) => {
-        return <li key ={repo["id"]}>
-            <ListTileRepoItem>
-
-                <IconListTileRepo href={repo["html_url"]} target="_blank">
-
-                    <IconLink/>
-                    <RepoTitle>
-                        {repo["name"]}
-                    </RepoTitle>
-
-                </IconListTileRepo>
-                <BadgeRow>
-                    
-                    <IconBadge primary={"#00b0ff"} secondary={"rgba(0, 176, 255, 0.2)"}>
-                        <IconEye/>
-                        <p>{repo["watchers_count"]}</p>
-                    </IconBadge>
-
-                    <IconBadge primary={"#fcf300"} secondary={"rgba(252, 243, 0, 0.2)"}>
-                        <IconStar/>
-                        <p>{repo["stargazers_count"]}</p>
-                    </IconBadge>
-
-                    <IconBadge primary={"#dc2f02"} secondary={"rgba(220, 47, 2, 0.2)"}>
-                        <IconInfo/>
-                        <p>{repo["open_issues_count"]}</p>
-                    </IconBadge>
-
-                    <IconBadge primary={"#007f5f"} secondary={"rgba(0, 127, 95, 0.2)"}>
-                        <IconFork/>
-                        <p>{repo["forks_count"]}</p>
-                    </IconBadge>
-
-                </BadgeRow>
-
-            </ListTileRepoItem>
-        </li>;
-    });
-
-    const navigate: NavigateFunction  = useNavigate();
-
-    const handleBackHome: MouseEventHandler = () => navigate("/");
-
-    console.log("From User Page: ",user, state, repos);
-    
-
+  const repoListItems = repos.map((repo: any) => {
     return (
-            <MainContainer>
-                {/* Parse out into its own div and margin auto? */}
-                <MainInnerContainer>
-                    {/* <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon> */}
-                            
-                            {/* Profile Image */}
-                    <ImageDescriptionContainer>
+      <li key={repo["id"]}>
+        <ListTileRepoItem>
+          <IconListTileRepo href={repo["html_url"]} target="_blank">
+            <IconLink />
+            <RepoTitle>{repo["name"]}</RepoTitle>
+          </IconListTileRepo>
+          <BadgeRow>
+            <IconBadge primary={"#00b0ff"} secondary={"rgba(0, 176, 255, 0.2)"}>
+              <IconEye />
+              <p>{repo["watchers_count"]}</p>
+            </IconBadge>
 
-                        <ButtonImageContainer>
+            <IconBadge primary={"#fcf300"} secondary={"rgba(252, 243, 0, 0.2)"}>
+              <IconStar />
+              <p>{repo["stargazers_count"]}</p>
+            </IconBadge>
 
-                            {/* <div style={{display: "flex"}}> */}
-                            <ProfileImage src={user["avatar_url"]}/>
-                            {/* </div> */}
+            <IconBadge primary={"#dc2f02"} secondary={"rgba(220, 47, 2, 0.2)"}>
+              <IconInfo />
+              <p>{repo["open_issues_count"]}</p>
+            </IconBadge>
 
-                            <ProfileUrlButton href={user["html_url"]} target="_blank">
-                                VISIT GITHUB PROFILE
-                            </ProfileUrlButton>
+            <IconBadge primary={"#007f5f"} secondary={"rgba(0, 127, 95, 0.2)"}>
+              <IconFork />
+              <p>{repo["forks_count"]}</p>
+            </IconBadge>
+          </BadgeRow>
+        </ListTileRepoItem>
+      </li>
+    );
+  });
 
-                        </ButtonImageContainer>
+  const navigate: NavigateFunction = useNavigate();
 
-                        <DescriptionContainer>
+  const handleBackHome: MouseEventHandler = () => navigate("/");
 
-                            <NameContentContainer>
-                                <UserName>{user["name"] ? user["name"] : "IhaveNoUserName"}</UserName>
-                                <UserLogin>{user["login"]}</UserLogin>
+  console.log("From User Page: ", user, state, repos);
 
-                                <IconBadge primary={"#00b0ff"} secondary={"rgba(0, 176, 255, 0.2)"}>{user["type"]}</IconBadge>
+  return (
+    <MainContainer>
+      {/* Parse out into its own div and margin auto? */}
+      <MainInnerContainer>
+        {/* <TextIcon type="button" onClick={handleBackHome}>BACK TO SEARCH</TextIcon> */}
 
-                                {/* TODO: If hireable is null || hireable the badge is green else not hireable*/}
-                                <IconBadge primary={"#007f5f"} secondary={"rgba(0, 127, 95, 0.2)"}>hireable</IconBadge>
+        {/* Profile Image */}
+        <ImageDescriptionContainer>
+          <ButtonImageContainer>
+            {/* <div style={{display: "flex"}}> */}
+            <ProfileImage src={user["avatar_url"]} />
+            {/* </div> */}
 
+            <ProfileUrlButton href={user["html_url"]} target="_blank">
+              VISIT GITHUB PROFILE
+            </ProfileUrlButton>
+          </ButtonImageContainer>
 
-                            </NameContentContainer>
+          <DescriptionContainer>
+            <NameContentContainer>
+              <UserName>
+                {user["name"] ? user["name"] : "IhaveNoUserName"}
+              </UserName>
+              <UserLogin>{user["login"]}</UserLogin>
 
-                            <Bio>
-                                {user["bio"] ? user["bio"] : "Nothing to write home about."}
-                            </Bio>
+              <IconBadge
+                primary={"#00b0ff"}
+                secondary={"rgba(0, 176, 255, 0.2)"}
+              >
+                {user["type"]}
+              </IconBadge>
 
-                            {/* <ProfileUrlButton href={user["html_url"]} target="_blank">
+              {/* TODO: If hireable is null || hireable the badge is green else not hireable*/}
+              <IconBadge
+                primary={"#007f5f"}
+                secondary={"rgba(0, 127, 95, 0.2)"}
+              >
+                hireable
+              </IconBadge>
+            </NameContentContainer>
+
+            <Bio>
+              {user["bio"] ? user["bio"] : "Nothing to write home about."}
+            </Bio>
+
+            {/* <ProfileUrlButton href={user["html_url"]} target="_blank">
                                 VISIT GITHUB PROFILE
                             </ProfileUrlButton> */}
 
-                            <LocationInfoContainer>
+            <LocationInfoContainer>
+              <ListTile>
+                <ListTileContentTop>Location</ListTileContentTop>
+                {user["location"] ? (
+                  <ListTileContentBottom>
+                    {user["location"]}
+                  </ListTileContentBottom>
+                ) : (
+                  <ListTileContentBottom>{"N/A"}</ListTileContentBottom>
+                )}
+              </ListTile>
 
-                                <ListTile>
-                                    <ListTileContentTop>Location</ListTileContentTop>
-                                    {user["location"] ? <ListTileContentBottom>{user["location"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
+              <VerticalLine />
 
-                                </ListTile>
+              <ListTile>
+                <ListTileContentTop>Website</ListTileContentTop>
+                {user["blog"] ? (
+                  <ListTileContentBottom>{user["blog"]}</ListTileContentBottom>
+                ) : (
+                  <ListTileContentBottom>{"N/A"}</ListTileContentBottom>
+                )}
+              </ListTile>
 
-                                <VerticalLine/>
+              <VerticalLine />
 
-                                <ListTile>
-                                    <ListTileContentTop>Website</ListTileContentTop>
-                                    {user["blog"] ? <ListTileContentBottom>{user["blog"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
-                                </ListTile>
+              <ListTile>
+                <ListTileContentTop>Twitter</ListTileContentTop>
+                {user["twitter_username"] ? (
+                  <ListTileContentBottom>
+                    {user["twitter_username"]}
+                  </ListTileContentBottom>
+                ) : (
+                  <ListTileContentBottom>{"N/A"}</ListTileContentBottom>
+                )}
+              </ListTile>
+            </LocationInfoContainer>
+          </DescriptionContainer>
+        </ImageDescriptionContainer>
 
-                                <VerticalLine/>
+        <IconListTileContainerWrapper>
+          <IconListTileContainer>
+            <ListTile>
+              <ListTileContentTop>Followers</ListTileContentTop>
+              <ListTileContentBottom>{user["followers"]}</ListTileContentBottom>
+            </ListTile>
 
+            <IconUsers />
+          </IconListTileContainer>
 
-                                <ListTile>
-                                    <ListTileContentTop>Twitter</ListTileContentTop>
-                                    {user["twitter_username"] ? <ListTileContentBottom>{user["twitter_username"]}</ListTileContentBottom> : <ListTileContentBottom>{"N/A"}</ListTileContentBottom>}
-                                </ListTile>
-                            </LocationInfoContainer>
+          <LogoIconVerticalLine />
 
-                        </DescriptionContainer>
+          <IconListTileContainer>
+            <ListTile>
+              <ListTileContentTop>Following</ListTileContentTop>
+              <ListTileContentBottom>{user["following"]}</ListTileContentBottom>
+            </ListTile>
 
-                    </ImageDescriptionContainer>
+            <IconUserFriends />
+          </IconListTileContainer>
 
-                <IconListTileContainerWrapper>
-                    
-                        <IconListTileContainer>
+          <LogoIconVerticalLine />
 
-                            <ListTile>
-                                <ListTileContentTop>Followers</ListTileContentTop>
-                                <ListTileContentBottom>{user["followers"]}</ListTileContentBottom>
-                            </ListTile>
+          <IconListTileContainer>
+            <ListTile>
+              <ListTileContentTop>Public Repos</ListTileContentTop>
+              <ListTileContentBottom>
+                {user["public_repos"]}
+              </ListTileContentBottom>
+            </ListTile>
 
-                            <IconUsers/>
+            <IconBox />
+          </IconListTileContainer>
 
-                        </IconListTileContainer>
+          <LogoIconVerticalLine />
 
-                        <LogoIconVerticalLine/>
+          <IconListTileContainer>
+            <ListTile>
+              <ListTileContentTop>Public Gists</ListTileContentTop>
+              <ListTileContentBottom>
+                {user["public_gists"]}
+              </ListTileContentBottom>
+            </ListTile>
 
-                        <IconListTileContainer>
+            <IconInBox />
+          </IconListTileContainer>
+        </IconListTileContainerWrapper>
+      </MainInnerContainer>
 
-                            <ListTile>
-                                <ListTileContentTop>Following</ListTileContentTop>
-                                <ListTileContentBottom>{user["following"]}</ListTileContentBottom>
-                            </ListTile>
+      <RepoHeader>Latest Repositories</RepoHeader>
 
-                            <IconUserFriends/>
-
-                        </IconListTileContainer>
-
-                        <LogoIconVerticalLine/>
-
-                        <IconListTileContainer>
-
-                            <ListTile>
-                                <ListTileContentTop>Public Repos</ListTileContentTop>
-                                <ListTileContentBottom>{user["public_repos"]}</ListTileContentBottom>
-                            </ListTile>
-
-                            <IconBox/>
-
-                        </IconListTileContainer>
-
-                        <LogoIconVerticalLine/>
-
-                        <IconListTileContainer>
-
-                                <ListTile>
-                                    <ListTileContentTop>Public Gists</ListTileContentTop>
-                                    <ListTileContentBottom>{user["public_gists"]}</ListTileContentBottom>
-                                </ListTile>
-
-                            <IconInBox/>
-
-                        </IconListTileContainer>
-
-                </IconListTileContainerWrapper>
-
-            </MainInnerContainer>
-
-            <RepoHeader>Latest Repositories</RepoHeader>
-
-            <ListTileRepoContaner>
-                {repoListItems}
-            </ListTileRepoContaner>
-
-            </MainContainer>
-    );
+      <ListTileRepoContaner>{repoListItems}</ListTileRepoContaner>
+    </MainContainer>
+  );
 };
 
 export default User;
